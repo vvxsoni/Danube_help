@@ -12,7 +12,7 @@
 </head>
 <body>
   <div id="app">Загрузка...</div>
-
+  <div id="search-box"></div>
   <script>
     // ===== Path utils =====
 
@@ -168,7 +168,7 @@
       const docsifyPaths = routes.map(toDocsifyRoute); // ['/', '/guide', '/dir/']
 
       window.$docsify = {
-        loadSidebar: true,
+        loadSidebar: true,                // подключать _sidebar.md для меню
         subMaxLevel: 2,
         search: {
           maxAge: 0,
@@ -178,6 +178,7 @@
           placeholder: 'Поиск...',
           noData: 'Ничего не найдено',
           namespace: 'docs',
+          element: '#search-box', 
           // Кастомная токенизация
           tokenize(text) {
             return text

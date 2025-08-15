@@ -1,5 +1,10 @@
 # **Документация** - по технологии **Docsify**
 
+## [v.1.0.0] - 2025-08-15 - andrey - **Потерялся поиск**
+### Fixed
+1. [search-box](index.html#L15)
+2. [element](index.html#L181)
+---------------------------------------------------------------
 ## [v.1.0.0] - 2025-08-15 - andrey - **Fixed docsify bootstrap for GitHub Pages subdirectory**
 ### Fixed
 • 	учитывает base-path репозитория на GitHub Pages;
