@@ -1,5 +1,13 @@
 # **Документация** - по технологии **Docsify**
 
+## [v.1.0.0] - 2025-08-15 - andrey - **Fixed docsify bootstrap for GitHub Pages subdirectory**
+### Fixed
+• 	учитывает base-path репозитория на GitHub Pages;
+• 	не дублирует /Danube_help в URL;
+• 	нормализует ссылки из _sidebar.md в относительные роуты;
+• 	передаёт Docsify search.paths в нужном формате.
+
+---------------------------------------------------------------
 ## [v.1.0.0] - 2025-08-15 - andrey - **Исправлены все функции для работы с правильным путем**
 ### Fixed
 1. [normalizeRoute](index.html#L23)
