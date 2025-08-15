@@ -4,19 +4,192 @@
   <meta charset="UTF-8">
   <title>My Docs</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <!-- Docsify -->
-  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/docsify/themes/vue.css">
+  <!-- Тема Docsify -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsify/themes/vue.css">
+  <style>
+    /* Небольшой UX: ровный фон до загрузки */
+    body { background: #fff; }
+  </style>
 </head>
 <body>
+  <!-- Контейнер, в который Docsify отрендерит контент -->
   <div id="app">Загрузка...</div>
+
   <script>
-    window.$docsify = {
-      loadSidebar: true,   // подключать _sidebar.md для меню
-      subMaxLevel: 2,      // раскрывать заголовки до 2-го уровня в навигации
-      search: 'auto'       // подключить поиск по сайту
+    /**
+     * normalizeRoute: нормализуем ссылки из _sidebar.md в маршруты Docsify
+     * Важно: Docsify ожидает "роуты" (/, /guide, /section/intro), а не имена файлов .md.
+     */
+    function normalizeRoute(href) {
+      if (!href) return null;
+
+      // Отсечь якоря и query-параметры
+      href = href.split('#')[0].split('?')[0].trim();
+
+      // Пропустить внешние ссылки и mailto
+      if (/^(https?:)?\/\//i.test(href) || /^mailto:/i.test(href)) return null;
+
+      // Убрать ведущие ./ и лишние слеши
+      href = href.replace(/^\.\//, '').replace(/\/{2,}/g, '/');
+
+      // Корень -> '/'
+      if (href === '' || href === 'README.md' || href === '/') return '/';
+
+      // Если это каталог с завершающим слешем, оставить как есть (Docsify загрузит README.md)
+      if (/\/$/.test(href)) {
+        return href.startsWith('/') ? href : '/' + href;
+      }
+
+      // Если есть расширение .md — убрать его, чтобы получить "роут"
+      if (/\.md$/i.test(href)) {
+        href = href.replace(/\.md$/i, '');
+      }
+
+      // Убедиться, что начинается с /
+      if (!href.startsWith('/')) href = '/' + href;
+
+      return href;
     }
-  </script>  
-  <script src="//cdn.jsdelivr.net/npm/docsify/lib/docsify.min.js"></script>
-  <script src="//cdn.jsdelivr.net/npm/docsify/lib/plugins/search.min.js"></script>
+
+    /**
+     * extractLinksFromMarkdown: достаем все ссылки вида [текст](ссылка) из markdown
+     * Исключаем картинки ![alt](src).
+     */
+    function extractLinksFromMarkdown(mdText) {
+      const links = [];
+      // Грубый, но эффективный матч ссылок: [label](href)
+      const regex = /(?<!!)\[[^\]]*\]\(([^)]+)\)/g;
+      let m;
+      while ((m = regex.exec(mdText)) !== null) {
+        const hrefRaw = m[1].trim();
+        // Игнорируем пустые и референсные ссылки
+        if (!hrefRaw || hrefRaw.startsWith('#')) continue;
+        links.push(hrefRaw);
+      }
+      return links;
+    }
+
+    /**
+     * dedupe: утилита для устранения дублей и пустых значений
+     */
+    function dedupe(arr) {
+      return Array.from(new Set(arr.filter(Boolean)));
+    }
+
+    /**
+     * loadSidebar: загружаем _sidebar.md по умолчанию из корня.
+     * Если используешь кастомный путь к сайдбару — поправь URL.
+     */
+    async function loadSidebar(url = '/_sidebar.md') {
+      const res = await fetch(url, { cache: 'no-store' });
+      if (!res.ok) throw new Error('Не удалось загрузить ' + url);
+      return res.text();
+    }
+
+    /**
+     * discoverRoutesFromSidebar: получаем маршруты из markdown сайдбара.
+     * Дополнительно включаем корень '/' (README.md).
+     */
+    async function discoverRoutesFromSidebar() {
+      const md = await loadSidebar();
+      const hrefs = extractLinksFromMarkdown(md);
+
+      const routes = hrefs
+        .map(normalizeRoute)
+        .filter(Boolean);
+
+      // Всегда индексируем корневую страницу
+      routes.push('/');
+
+      return dedupe(routes);
+    }
+
+    /**
+     * preloadMarkdown: предзагружаем контент всех маршрутов.
+     * Docsify сам сопоставит маршрут с .md файлом (обычно добавляет .md).
+     * Здесь мы используем соглашение Docsify: маршрут -> файл .md.
+     */
+    async function preloadMarkdown(routes) {
+      const toFilePath = (route) => {
+        // '/' -> '/README.md', '/guide' -> '/guide.md', '/dir/' -> '/dir/README.md'
+        if (route === '/') return '/README.md';
+        if (route.endsWith('/')) return route + 'README.md';
+        return route + '.md';
+      };
+
+      await Promise.all(routes.map(async (route) => {
+        const file = toFilePath(route);
+        try {
+          const res = await fetch(file, { cache: 'no-store' });
+          // Даже если 404 — пропускаем молча, чтобы не ронять инициализацию
+          if (res.ok) await res.text();
+        } catch (e) {
+          // Тихо игнорируем сети/корс — ключевая цель: попытаться прогреть индекс
+        }
+      }));
+    }
+
+    /**
+     * tokenize: более "мягкая" токенизация для кириллицы, цифр, дефисов и коротких слов.
+     * Встроенный поиск будет использовать её для построения индекса.
+     */
+    function tokenize(text) {
+      return text
+        .toLowerCase()
+        // Разрешаем латиницу, кириллицу, цифры и дефис; остальное -> пробел
+        .replace(/[^a-zа-яё0-9\-]+/g, ' ')
+        .split(/\s+/)
+        .filter(Boolean);
+    }
+
+    /**
+     * bootstrapDocsify: главный бутстрап:
+     * - выясняем все маршруты из _sidebar.md
+     * - предзагружаем markdown
+     * - выставляем window.$docsify с готовыми search.paths
+     * - динамически подключаем скрипты docsify + search
+     */
+    (async function bootstrapDocsify() {
+      let routes = [];
+      try {
+        routes = await discoverRoutesFromSidebar();
+        await preloadMarkdown(routes);
+      } catch (e) {
+        // Фолбэк: хотя бы корневую страницу
+        routes = ['/'];
+      }
+
+      // Конфиг Docsify: записываем до загрузки скриптов Docsify
+      window.$docsify = {
+        loadSidebar: true,            // подключать _sidebar.md для меню
+        subMaxLevel: 2,               // раскрывать заголовки до 2-го уровня в навигации
+        // Полный контроль поиска
+        search: {
+          maxAge: 0,                   // без кэша: всегда актуально
+          paths: routes,               // явный список маршрутов для индексации
+          depth: 6,                    // заголовки до h6
+          hideOtherSidebarContent: false,
+          placeholder: 'Поиск...',
+          noData: 'Ничего не найдено',
+          namespace: 'docs',
+          // Подмена токенизации — чтобы учитывать короткие слова и кириллицу
+          tokenize
+        }
+      };
+
+      // Динамически подключаем Docsify и плагин поиска ПОСЛЕ того, как window.$docsify готов
+      const appendScript = (src) => new Promise((resolve, reject) => {
+        const s = document.createElement('script');
+        s.src = src;
+        s.onload = resolve;
+        s.onerror = reject;
+        document.head.appendChild(s);
+      });
+
+      // Сначала ядро Docsify, затем плагин поиска
+      await appendScript('https://cdn.jsdelivr.net/npm/docsify/lib/docsify.min.js');
+      await appendScript('https://cdn.jsdelivr.net/npm/docsify/lib/plugins/search.min.js');
+    })();
+  </script>
 </body>
 </html>
