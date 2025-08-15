@@ -1,12 +1,9 @@
-# Danube_help
-Инструкция пользователя 
-# Добро пожаловать в документацию
+# Добро пожаловать в документацию ИС ЕМЛС «Дунай»
+Здесь будем публиковать текущие инструкции к режимам на сайте
+## В августе 2025 года стартовала опытная экслуатация в ПЛС Черноморск
 
-Это пример **Docsify**.
+![Скриншот главной страницы сайта](images/home.png)
 
-![Скриншот](images/screenshot.png)
-
-[Смотреть видео на YouTube](https://youtu.be/dQw4w9WgXcQ)
-
-## Встроенное видео
-<iframe width="560" height="315" src="https://www.youtube.com/embed/dQw4w9WgXcQ" frameborder="0" allowfullscreen></iframe>
+Пример видеоинструкции:
+## ИС ЕМЛС «Дунай» Регистрация • Список пользователей • Справочник сотрудников `2023-04-18`
+<iframe width="560" height="315" src="https://youtu.be/DF62pfl90vY" frameborder="0" allowfullscreen></iframe>
