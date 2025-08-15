@@ -195,21 +195,35 @@
       if (!docsifyPaths.includes('/')) docsifyPaths.unshift('/');
 
       window.$docsify = {
-        el: '#app',
         loadSidebar: true,
         subMaxLevel: 2,
         search: {
-          maxAge: 0,
-          paths: docsifyPaths,
-          depth: 6,
-          hideOtherSidebarContent: false,
+          maxAge: 0,                 // кэш отключён, чтобы видеть правки сразу
+          paths: 'auto',             // автообход всех страниц сайдбара
           placeholder: 'Поиск...',
           noData: 'Ничего не найдено',
-          namespace: 'docs',
-          element: '#search-box', // поиск выводим в твой контейнер
-          tokenize
+          namespace: 'docs'
         }
-      };
+      }
+
+
+
+      // window.$docsify = {
+      //   el: '#app',
+      //   loadSidebar: true,
+      //   subMaxLevel: 2,
+      //   search: {
+      //     maxAge: 0,
+      //     paths: docsifyPaths,
+      //     depth: 6,
+      //     hideOtherSidebarContent: false,
+      //     placeholder: 'Поиск...',
+      //     noData: 'Ничего не найдено',
+      //     namespace: 'docs',
+      //     element: '#search-box', // поиск выводим в твой контейнер
+      //     tokenize
+      //   }
+      // };
 
       const appendScript = (src) => new Promise((resolve, reject) => {
         const s = document.createElement('script');
