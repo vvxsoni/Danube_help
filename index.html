@@ -4,86 +4,88 @@
   <meta charset="UTF-8">
   <title>My Docs</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <!-- Тема Docsify -->
+  <!-- Подключение темы Docsify -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsify/themes/vue.css">
   <style>
+    /* Небольшой UX: фоновый цвет до загрузки контента */
     body { background: #fff; }
   </style>
 </head>
 <body>
+  <!-- Контейнер, в который Docsify отрендерит контент -->
   <div id="app">Загрузка...</div>
+  <!-- Отдельный контейнер для поля поиска -->
   <div id="search-box"></div>
-  <script>
-    // ===== Path utils =====
 
-    // Каталог текущей страницы как URL- база (с хвостовым /)
+  <script>
+    /**
+     * pageBase — возвращает URL каталога текущей страницы (с хвостовым /).
+     * Работает и локально, и на GitHub Pages.
+     */
     function pageBase() {
       return new URL('.', window.location.href);
     }
 
-    // Первый сегмент пути (имя репозитория на GH Pages) либо ''
+    /**
+     * repoSegment — находит первый сегмент пути (имя репозитория на GitHub Pages) или ''.
+     * Например: /Danube_help/page -> "Danube_help".
+     */
     function repoSegment() {
       const parts = window.location.pathname.split('/').filter(Boolean);
       return parts[0] || '';
     }
 
-    // Удаляем ведущий base репозитория из href, если он там есть (и с /, и без)
+    /**
+     * stripRepoBase — убирает имя репозитория из начала пути, если оно там есть.
+     * Нужно, чтобы избежать удвоения /repo/repo/... в путях.
+     */
     function stripRepoBase(href) {
       const repo = repoSegment();
       if (!repo) return href;
       return href
-        .replace(new RegExp('^/' + repo + '/'), '')   // '/repo/guide' -> 'guide'
-        .replace(new RegExp('^' + repo + '/'), '');   // 'repo/guide'  -> 'guide'
+        .replace(new RegExp('^/' + repo + '/'), '')
+        .replace(new RegExp('^' + repo + '/'), '');
     }
 
-    // Преобразуем относительный путь к абсолютному URL от каталога страницы
+    /**
+     * resolveFromPage — строит абсолютный URL для относительного пути,
+     * отталкиваясь от каталога страницы (base path).
+     */
     function resolveFromPage(relative) {
       const clean = String(relative ?? '').trim().replace(/^\/+/, '');
       return new URL(clean, pageBase()).href;
     }
 
-    // ===== Markdown/route utils =====
-
-    // Нормализуем ссылки из _sidebar.md в относительные роуты Docsify:
-    // '' (root), 'guide', 'dir/'
+    /**
+     * normalizeRoute — нормализует ссылки из _sidebar.md в формат роутов Docsify:
+     *   '' (root), 'guide', 'dir/'
+     */
     function normalizeRoute(href) {
       if (!href) return null;
-
-      // Убираем hash и query
+      // Отрезаем якорь и query
       href = href.split('#')[0].split('?')[0].trim();
-
-      // Внешние ссылки и mailto — пропускаем
+      // Пропускаем внешние ссылки и mailto
       if (/^(https?:)?\/\//i.test(href) || /^mailto:/i.test(href)) return null;
-
-      // Убираем ./ и двойные слэши
+      // Убираем ./ и повторяющиеся /
       href = href.replace(/^\.\//, '').replace(/\/{2,}/g, '/');
-
-      // Сначала срежем базу репозитория, если автор в сайдбаре поставил абсолюты
+      // Срезаем базу репозитория, если есть
       href = stripRepoBase(href);
-
       // Корневые варианты
       if (href === '' || href.toLowerCase() === 'readme.md' || href === '/') return '';
-
-      // Каталог с завершающим слешем: 'dir/' → оставить
+      // 'dir/README.md' -> 'dir/'
+      if (/\/readme\.md$/i.test(href))
+        return href.replace(/^\//, '').replace(/readme\.md$/i, '');
+      // Каталог с завершающим /
       if (/\/$/.test(href)) return href.replace(/^\//, '');
-
-      // 'dir/README.md' → 'dir/'
-      if (/\/readme\.md$/i.test(href)) return href.replace(/^\//, '').replace(/readme\.md$/i, '');
-
-      // Если .md — срежем расширение
+      // Убираем .md
       if (/\.md$/i.test(href)) href = href.replace(/\.md$/i, '');
-
-      // Вернём относительный роут без ведущего '/'
       return href.replace(/^\//, '');
     }
 
-    // Преобразуем относительный роут к формату Docsify ('', 'guide', 'dir/') -> '/', '/guide', '/dir/'
-    function toDocsifyRoute(route) {
-      if (!route) return '/';
-      return route.startsWith('/') ? route : '/' + route;
-    }
-
-    // Достаём href из markdown (исключаем картинки)
+    /**
+     * extractLinksFromMarkdown — вытаскивает все ссылки [текст](ссылка) из markdown.
+     * Игнорирует картинки ![alt](src) и якоря.
+     */
     function extractLinksFromMarkdown(mdText) {
       const links = [];
       const regex = /(?<!!)\[[^\]]*\]\(([^)]+)\)/g;
@@ -96,46 +98,47 @@
       return links;
     }
 
-    // Убираем дубликаты и пустые
+    /**
+     * dedupe — удаляет дубликаты и пустые значения из массива.
+     */
     function dedupe(arr) {
       return Array.from(new Set(arr.filter(Boolean)));
     }
 
-    // ===== Loaders =====
-
-    // Загружаем _sidebar.md из каталога страницы (без удвоения /Danube_help)
+    /**
+     * loadSidebar — загружает _sidebar.md из текущего каталога сайта.
+     * URL строится через resolveFromPage для избежания проблем с поддиректориями.
+     */
     async function loadSidebar(url = '_sidebar.md') {
       const fullUrl = resolveFromPage(url);
       const res = await fetch(fullUrl, { cache: 'no-store', credentials: 'same-origin' });
-      if (!res.ok) throw new Error('Не удалось загрузить ' + fullUrl + ' (HTTP ' + res.status + ')');
+      if (!res.ok) throw new Error(`Не удалось загрузить ${fullUrl} (HTTP ${res.status})`);
       return res.text();
     }
 
-    // Собираем относительные роуты из сайдбара
+    /**
+     * discoverRoutesFromSidebar — вытаскивает все относительные роуты из _sidebar.md.
+     * Всегда добавляет '' (корневую страницу).
+     */
     async function discoverRoutesFromSidebar() {
       const md = await loadSidebar();
       const hrefs = extractLinksFromMarkdown(md);
-
-      const routes = hrefs
-        .map(normalizeRoute)
-        .filter((r) => r !== null);
-
-      // Всегда добавляем корень
+      const routes = hrefs.map(normalizeRoute).filter(r => r !== null);
       routes.push('');
-
-      // Возвращаем относительные роуты (НЕ абсолютные pathnames!)
       return dedupe(routes);
     }
 
-    // Предзагружаем .md по относительным роутам
+    /**
+     * preloadMarkdown — предзагружает Markdown-файлы для всех маршрутов,
+     * чтобы поиск работал даже по ещё не открытым страницам.
+     */
     async function preloadMarkdown(routes, opts = {}) {
-      const docsDir = (opts.docsDir || '').replace(/^\/+|\/+$/g, ''); // 'docs' | ''
-
-      const base = pageBase();                          // https://host/user/repo/
+      const docsDir = (opts.docsDir || '').replace(/^\/+|\/+$/g, ''); // например 'docs'
+      const base = pageBase();
       const rootUrl = new URL(docsDir ? docsDir + '/' : '', base);
 
       const toFilePath = (route) => {
-        let r = String(route || '').trim().replace(/^#?\/+/, ''); // делаем относительным
+        let r = String(route || '').trim().replace(/^#?\/+/, '');
         if (!r) return 'README.md';
         if (r.endsWith('/')) return r + 'README.md';
         return r + '.md';
@@ -147,28 +150,53 @@
         try {
           const res = await fetch(url, { cache: 'no-store', credentials: 'same-origin' });
           if (res.ok) await res.text();
-        } catch (_) {
-          // Тихо игнорируем сети/корс — цель: прогреть
-        }
+        } catch (_) { /* Игнорируем ошибки сети/доступа */ }
       }));
     }
 
-    // ===== Bootstrap =====
+    /**
+     * toDocsifyRoute — конвертирует относительный роут в формат, который ждёт Docsify:
+     * '' -> '/', 'guide' -> '/guide'
+     */
+    function toDocsifyRoute(route) {
+      if (!route) return '/';
+      return route.startsWith('/') ? route : '/' + route;
+    }
 
+    /**
+     * tokenize — мягкая токенизация для поиска:
+     * поддерживает латиницу, кириллицу, цифры, дефисы.
+     */
+    function tokenize(text) {
+      return text
+        .toLowerCase()
+        .replace(/[^a-zа-яё0-9\-]+/g, ' ')
+        .split(/\s+/)
+        .filter(Boolean);
+    }
+
+    /**
+     * bootstrapDocsify — основной запуск:
+     * - собирает маршруты
+     * - предзагружает md
+     * - настраивает Docsify
+     * - подключает скрипты Docsify и поиска
+     */
     (async function bootstrapDocsify() {
       let routes = [];
       try {
-        routes = await discoverRoutesFromSidebar();   // ['', 'guide', 'dir/']
+        routes = await discoverRoutesFromSidebar();
         await preloadMarkdown(routes);
-      } catch (_) {
-        routes = ['']; // хотя бы корень
+      } catch (e) {
+        routes = ['']; // фолбэк — только корень
       }
 
-      // Преобразуем для Docsify search.paths
-      const docsifyPaths = routes.map(toDocsifyRoute); // ['/', '/guide', '/dir/']
+      const docsifyPaths = routes.map(toDocsifyRoute);
+      if (!docsifyPaths.includes('/')) docsifyPaths.unshift('/');
 
       window.$docsify = {
-        loadSidebar: true,                // подключать _sidebar.md для меню
+        el: '#app',
+        loadSidebar: true,
         subMaxLevel: 2,
         search: {
           maxAge: 0,
@@ -178,19 +206,11 @@
           placeholder: 'Поиск...',
           noData: 'Ничего не найдено',
           namespace: 'docs',
-          element: '#search-box', 
-          // Кастомная токенизация
-          tokenize(text) {
-            return text
-              .toLowerCase()
-              .replace(/[^a-zа-яё0-9\-]+/g, ' ')
-              .split(/\s+/)
-              .filter(Boolean);
-          }
+          element: '#search-box', // поиск выводим в твой контейнер
+          tokenize
         }
       };
 
-      // Динамически подключаем Docsify и плагин поиска
       const appendScript = (src) => new Promise((resolve, reject) => {
         const s = document.createElement('script');
         s.src = src;
