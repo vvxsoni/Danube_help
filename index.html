@@ -23,33 +23,56 @@
     function normalizeRoute(href) {
       if (!href) return null;
 
-      // Отсечь якоря и query-параметры
+      // Отсечь якорь и query
       href = href.split('#')[0].split('?')[0].trim();
 
       // Пропустить внешние ссылки и mailto
       if (/^(https?:)?\/\//i.test(href) || /^mailto:/i.test(href)) return null;
 
-      // Убрать ведущие ./ и лишние слеши
+      // Убрать ./ и двойные слеши
       href = href.replace(/^\.\//, '').replace(/\/{2,}/g, '/');
 
-      // Корень -> '/'
-      if (href === '' || href === 'README.md' || href === '/') return '/';
+      // Корневые варианты
+      if (href === '' || href.toLowerCase() === 'readme.md' || href === '/') return '';
 
-      // Если это каталог с завершающим слешем, оставить как есть (Docsify загрузит README.md)
-      if (/\/$/.test(href)) {
-        return href.startsWith('/') ? href : '/' + href;
-      }
+      // Каталог с завершающим слешем
+      if (/\/$/.test(href)) return href.replace(/^\//, '');
 
-      // Если есть расширение .md — убрать его, чтобы получить "роут"
-      if (/\.md$/i.test(href)) {
-        href = href.replace(/\.md$/i, '');
-      }
+      // Срезать .md
+      if (/\.md$/i.test(href)) href = href.replace(/\.md$/i, '');
 
-      // Убедиться, что начинается с /
-      if (!href.startsWith('/')) href = '/' + href;
+      return href.replace(/^\//, ''); // <-- без ведущего слэша, будет относительный
+    }    
+    // function normalizeRoute(href) {
+    //   if (!href) return null;
 
-      return href;
-    }
+    //   // Отсечь якоря и query-параметры
+    //   href = href.split('#')[0].split('?')[0].trim();
+
+    //   // Пропустить внешние ссылки и mailto
+    //   if (/^(https?:)?\/\//i.test(href) || /^mailto:/i.test(href)) return null;
+
+    //   // Убрать ведущие ./ и лишние слеши
+    //   href = href.replace(/^\.\//, '').replace(/\/{2,}/g, '/');
+
+    //   // Корень -> '/'
+    //   if (href === '' || href === 'README.md' || href === '/') return '/';
+
+    //   // Если это каталог с завершающим слешем, оставить как есть (Docsify загрузит README.md)
+    //   if (/\/$/.test(href)) {
+    //     return href.startsWith('/') ? href : '/' + href;
+    //   }
+
+    //   // Если есть расширение .md — убрать его, чтобы получить "роут"
+    //   if (/\.md$/i.test(href)) {
+    //     href = href.replace(/\.md$/i, '');
+    //   }
+
+    //   // Убедиться, что начинается с /
+    //   if (!href.startsWith('/')) href = '/' + href;
+
+    //   return href;
+    // }
 
     /**
      * extractLinksFromMarkdown: достаем все ссылки вида [текст](ссылка) из markdown
@@ -81,10 +104,20 @@
      * Если используешь кастомный путь к сайдбару — поправь URL.
      */
     async function loadSidebar(url = '_sidebar.md') {
-      const res = await fetch(url, { cache: 'no-store' });
-      if (!res.ok) throw new Error('Не удалось загрузить ' + url);
+      // Берём base path из window.location.pathname
+      const basePath = window.location.pathname.split('/').slice(0, -1).join('/');
+      const fullUrl = `${basePath}/${url}`;
+
+      const res = await fetch(fullUrl, { cache: 'no-store' });
+      if (!res.ok) throw new Error('Не удалось загрузить ' + fullUrl);
       return res.text();
-    }
+    }    
+    // async function loadSidebar(url = '_sidebar.md') {
+    //   const res = await fetch(url, { cache: 'no-store' });
+    //   if (!res.ok) throw new Error('Не удалось загрузить ' + url);
+    //   return res.text();
+    // }
+
 
     /**
      * discoverRoutesFromSidebar: получаем маршруты из markdown сайдбара.
@@ -92,42 +125,106 @@
      */
     async function discoverRoutesFromSidebar() {
       const md = await loadSidebar();
+
       const hrefs = extractLinksFromMarkdown(md);
+
+      // baseUrl: директория, где загружен index.html
+      const baseUrl = new URL('.', window.location.href);
 
       const routes = hrefs
         .map(normalizeRoute)
-        .filter(Boolean);
+        .filter(Boolean)
+        .map(r => {
+          // убираем ведущие #, /
+          let clean = r.replace(/^#?\/+/, '');
+          // пустое => README.md в корне
+          if (!clean) clean = '';
+          return clean;
+        });
 
-      // Всегда индексируем корневую страницу
-      routes.push('/');
+      // Добавляем корень ('') вместо '/'
+      routes.push('');
 
-      return dedupe(routes);
-    }
+      // убираем дубликаты
+      return dedupe(routes.map(r => new URL(r, baseUrl).pathname));
+    }    
+    // async function discoverRoutesFromSidebar() {
+    //   const md = await loadSidebar();
+    //   const hrefs = extractLinksFromMarkdown(md);
+
+    //   const routes = hrefs
+    //     .map(normalizeRoute)
+    //     .filter(Boolean);
+
+    //   // Всегда индексируем корневую страницу
+    //   routes.push('/');
+
+    //   return dedupe(routes);
+    // }
 
     /**
      * preloadMarkdown: предзагружаем контент всех маршрутов.
      * Docsify сам сопоставит маршрут с .md файлом (обычно добавляет .md).
      * Здесь мы используем соглашение Docsify: маршрут -> файл .md.
      */
-    async function preloadMarkdown(routes) {
+    async function preloadMarkdown(routes, opts = {}) {
+      // opts.docsDir: если md лежат в подкаталоге (например, 'docs'), укажи здесь.
+      const docsDir = (opts.docsDir || '').replace(/^\/+|\/+$/g, ''); // 'docs' | ''
+      // База — директория текущей страницы (надёжно для /repo-name/ и любых вложений)
+      const baseUrl = new URL('.', window.location.href);
+      // Корень, где лежат md-файлы
+      const rootUrl = new URL((docsDir ? docsDir + '/' : ''), baseUrl);
+
       const toFilePath = (route) => {
-        // '/' -> '/README.md', '/guide' -> '/guide.md', '/dir/' -> '/dir/README.md'
-        if (route === '/') return 'README.md';
-        if (route.endsWith('/')) return route + 'README.md';
-        return route + '.md';
+        // Нормализуем: убираем ведущие '#', '/', '#/'
+        let r = String(route).trim()
+          .replace(/^#?\/+/, ''); // '#/guide' -> 'guide', '/dir/' -> 'dir/'
+
+        // '/' или пусто -> README.md
+        if (!r) return 'README.md';
+        // 'dir/' -> 'dir/README.md'
+        if (r.endsWith('/')) return r + 'README.md';
+        // 'guide' -> 'guide.md'
+        return r + '.md';
       };
 
-      await Promise.all(routes.map(async (route) => {
-        const file = toFilePath(route);
-        try {
-          const res = await fetch(file, { cache: 'no-store' });
-          // Даже если 404 — пропускаем молча, чтобы не ронять инициализацию
-          if (res.ok) await res.text();
-        } catch (e) {
-          // Тихо игнорируем сети/корс — ключевая цель: попытаться прогреть индекс
-        }
-      }));
-    }
+      await Promise.all(
+        routes.map(async (route) => {
+          const file = toFilePath(route);
+          const url = new URL(file, rootUrl).href;
+
+          try {
+            const res = await fetch(url, { cache: 'no-store' });
+            if (res.ok) {
+              // прогреваем кэш парсеров/индексов, если нужно — можно сохранить в Map
+              await res.text();
+            }
+            // 404/прочее — тихо игнорируем, чтобы не ронять инициализацию
+          } catch (_) {
+            // сети/корс — тоже пропускаем
+          }
+        })
+      );
+    }    
+    // async function preloadMarkdown(routes) {
+    //   const toFilePath = (route) => {
+    //     // '/' -> '/README.md', '/guide' -> '/guide.md', '/dir/' -> '/dir/README.md'
+    //     if (route === '/') return 'README.md';
+    //     if (route.endsWith('/')) return route + 'README.md';
+    //     return route + '.md';
+    //   };
+
+    //   await Promise.all(routes.map(async (route) => {
+    //     const file = toFilePath(route);
+    //     try {
+    //       const res = await fetch(file, { cache: 'no-store' });
+    //       // Даже если 404 — пропускаем молча, чтобы не ронять инициализацию
+    //       if (res.ok) await res.text();
+    //     } catch (e) {
+    //       // Тихо игнорируем сети/корс — ключевая цель: попытаться прогреть индекс
+    //     }
+    //   }));
+    // }
 
     /**
      * tokenize: более "мягкая" токенизация для кириллицы, цифр, дефисов и коротких слов.

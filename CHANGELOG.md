@@ -1,5 +1,13 @@
 # **Документация** - по технологии **Docsify**
 
+## [v.1.0.0] - 2025-08-15 - andrey - **Исправлены все функции для работы с правильным путем**
+### Fixed
+1. [normalizeRoute](index.html#L23)
+2. [loadSidebar](index.html#L106)
+3. [discoverRoutesFromSidebar](index.html#L126)
+4. [preloadMarkdown](index.html#L170)
+
+---------------------------------------------------------------
 ## [v.1.0.0] - 2025-08-15 - andrey - **Исправлены пути для сайдбар и реадми**
 ### Fixed
 1. [loadSidebar](index.html#L83)
