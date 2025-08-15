@@ -80,7 +80,7 @@
      * loadSidebar: загружаем _sidebar.md по умолчанию из корня.
      * Если используешь кастомный путь к сайдбару — поправь URL.
      */
-    async function loadSidebar(url = '/_sidebar.md') {
+    async function loadSidebar(url = '_sidebar.md') {
       const res = await fetch(url, { cache: 'no-store' });
       if (!res.ok) throw new Error('Не удалось загрузить ' + url);
       return res.text();
@@ -112,7 +112,7 @@
     async function preloadMarkdown(routes) {
       const toFilePath = (route) => {
         // '/' -> '/README.md', '/guide' -> '/guide.md', '/dir/' -> '/dir/README.md'
-        if (route === '/') return '/README.md';
+        if (route === '/') return 'README.md';
         if (route.endsWith('/')) return route + 'README.md';
         return route + '.md';
       };
