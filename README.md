@@ -6,4 +6,4 @@
 
 Пример видеоинструкции:
 ## ИС ЕМЛС «Дунай» Регистрация • Список пользователей • Справочник сотрудников `2023-04-18`
-<iframe width="560" height="315" src="https://www.youtube.com/watch?v=DF62pfl90vY" frameborder="0" allowfullscreen></iframe>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/DF62pfl90vY" frameborder="0" allowfullscreen></iframe>
