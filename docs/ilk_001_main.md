@@ -3,6 +3,17 @@
 
 ## Проводки ЛС
 __Таблица__ со _списком_ проводок **почти** ```такая``` же *как* на $Дунае$
+_фыввыфа_
+
+- ==Важно=={.quick-highlight.important}  
+- ==Ошибка=={.quick-highlight.danger}  
+- success{.quick-highlight.success}  
+- warning{.quick-highlight.warning}  
+- `ДЕЙСТВУЮЩЕЙ`{.quick-highlight.stat_die}  
+- `В ПРОВОДКЕ`{.quick-highlight.stat_prov}  
+- `ВЫПОЛНЕНА`{.quick-highlight.stat_vik}  
+
+
 Пример списка:
 
 - Номер квитанции по формату ГГ012345
