@@ -76,3 +76,11 @@ span.quick-highlight.stat_die  { background-color: #ffff00; color: black; }
 span.quick-highlight.stat_prov { background-color: #ff9847; color: black; }
 span.quick-highlight.stat_vik  { background-color: deepskyblue; color: black; }
 
+.quick-highlight.date {
+    background-color: #e7f5ff; /* светло-голубой фон */
+    color: #1c7ed6;            /* синий текст */
+    padding: 0 4px;
+    border-radius: 0.25rem;
+}
+
+.underline {    text-decoration: underline;}
