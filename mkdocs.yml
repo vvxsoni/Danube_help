@@ -9,18 +9,41 @@ theme:
     - navigation.top          # кнопка "вверх"
     - header.autohide         # шапка прилипала
     - toc.integrate           # оглавление в боковой панели    
+    - content.code.copy       # копирование кода кнопкой
+    - content.tabs.link       # вкладки
+    - content.tooltips        # всплывающие подсказки    
 markdown_extensions:
   - toc
   - admonition
+  - pymdownx.details          # раскрывающиеся блоки (??? note)
+  - pymdownx.superfences      # вкладки (=== "Python")
+  - pymdownx.tabbed:
+      alternate_style: true   # красивый стиль вкладок
+  - attr_list                 # классы для кнопок и стилей
+  - def_list                  # поддержка списков-определений
+  - footnotes                 # сноски
+  - md_in_html                # HTML внутри markdown
+  - toc:
+      permalink: true         # якорные ссылки в заголовках
+  - pymdownx.highlight:
+      anchor_linenums: true  
   - codehilite
   - pymdownx.superfences
   - attr_list    
   - pymdownx.inlinehilite     # плагин Python
+  - pymdownx.snippets
+  - pymdownx.keys
+  - pymdownx.mark             # ==выделение==
+  - pymdownx.critic           # дополнения/удаления текста
+  - pymdownx.caret            # ^надстрочный текст^
+  - pymdownx.tilde            # ~подстрочный текст~
+  - pymdownx.smartsymbols     # спец. символы  
 nav:
   - Введение: index.md
   - Руководство: guide.md
   - Видеоуроки: video.md
   - ПЛС ЧЕРНОМОРСК: ilk_001_main.md
+  - CheatSheet: cheatsheet.md   # 🔥 добавляем мой справочник
 
 palette:
     primary: blue
