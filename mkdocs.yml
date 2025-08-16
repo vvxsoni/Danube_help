@@ -1,23 +1,27 @@
 site_name: Документация ИС ЕМЛС «Дунай»
 theme:
   name: material
+  language: ru
   custom_dir: overrides
   features:
-    - navigation.top
-    - navigation.tabs
-    - navigation.tabs.sticky
-    - navigation.sections
-    - search.suggest
-    - search.highlight
-    - search.share
+    - navigation.sections     # многоуровневое меню
+    - navigation.expand       # раскрывать подразделы
+    - navigation.top          # кнопка "вверх"
+    - header.autohide         # шапка прилипала
+    - toc.integrate           # оглавление в боковой панели    
 nav:
   - Введение: index.md
   - Руководство: guide.md
   - Видеоуроки: video.md
   - ПЛС ЧЕРНОМОРСК: ilk_001_main.md
 
+palette:
+    primary: blue
+    accent: indigo
 extra_javascript:
   - pagefind/pagefind-ui.js
 extra_css:
   - pagefind/pagefind-ui.css
   - styles.css
+plugins:
+  - search: false   # отключаем стандартный поиск MkDocs
