@@ -1,0 +1,38 @@
+name: Deploy Documentation
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Setup Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: 3.10
+
+      - name: Install dependencies
+        run: pip install mkdocs mkdocs-material
+
+      - name: Build site
+        run: mkdocs build
+
+      - name: Download Pagefind
+        run: |
+          wget https://github.com/TechMagic/pagefind/releases/latest/download/pagefind-linux
+          chmod +x pagefind
+
+      - name: Generate Pagefind index
+        run: ./pagefind --site ./site
+
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./site

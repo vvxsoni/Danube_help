@@ -1,0 +1,13 @@
+site_name: Документация проекта
+theme:
+  name: material
+
+nav:
+  - Введение: index.md
+  - Руководство: guide.md
+  - Видеоуроки: video.md
+
+extra_javascript:
+  - pagefind/pagefind-ui.js
+extra_css:
+  - pagefind/pagefind-ui.css
