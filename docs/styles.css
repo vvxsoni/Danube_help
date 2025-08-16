@@ -30,3 +30,30 @@
   border-radius: 0.5rem;
   box-shadow: 0 2px 8px rgba(0,0,0,0.2);
 }
+
+/* Поле поиска в шапке: справа, не увеличивает высоту хедера */
+.pagefind-search-in-header {
+  position: absolute;
+  right: 0.75rem;
+  top: 0.6rem;
+  width: min(420px, 50vw);
+  z-index: 2;
+}
+
+/* Компактнее форма */
+.pagefind-ui__form { margin: 0; }
+
+/* Выпадающий список результатов — поверх контента, а не внутри шапки */
+.pagefind-ui__drawer {
+  border-radius: 8px;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.2);
+  border: 1px solid var(--md-default-fg-color--lighter);
+  background: var(--md-default-bg-color);
+}
+@media (max-width: 768px) {
+  .pagefind-search-in-header {
+    left: 0.75rem;
+    right: 0.75rem;
+    width: auto;
+  }
+}
