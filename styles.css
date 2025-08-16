@@ -57,3 +57,22 @@
     width: auto;
   }
 }
+
+
+/* Простой парсинг для ==text== */
+span.quick-highlight {
+    padding: 0 4px;
+    border-radius: 0.25rem;
+    font-weight: 500;
+}
+
+/* Цвета в стиле Bootstrap 5 */
+span.quick-highlight.important { background-color: #cfe2ff; color: #0d6efd; }
+span.quick-highlight.success { background-color: #d1e7dd; color: #198754; }
+span.quick-highlight.warning { background-color: #fff3cd; color: #856404; }
+span.quick-highlight.danger  { background-color: #f8d7da; color: #842029; }
+
+span.quick-highlight.stat_die  { background-color: #ffff00; color: black; }
+span.quick-highlight.stat_prov { background-color: #ff9847; color: black; }
+span.quick-highlight.stat_vik  { background-color: deepskyblue; color: black; }
+
