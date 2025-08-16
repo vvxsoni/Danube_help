@@ -2,7 +2,14 @@ site_name: Документация ИС ЕМЛС «Дунай»
 theme:
   name: material
   custom_dir: overrides
-
+  features:
+    - navigation.top
+    - navigation.tabs
+    - navigation.tabs.sticky
+    - navigation.sections
+    - search.suggest
+    - search.highlight
+    - search.share
 nav:
   - Введение: index.md
   - Руководство: guide.md
@@ -13,3 +20,4 @@ extra_javascript:
   - pagefind/pagefind-ui.js
 extra_css:
   - pagefind/pagefind-ui.css
+  - styles.css

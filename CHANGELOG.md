@@ -2,6 +2,21 @@ MkDocs_Pagefind_GitHub_Pages
 
 # **Документация** - меняем технологию на **MkDocs_Pagefind_GitHub_Pages**
 
+## [v.1.0.0] - 2025-08-16 GitHub Pages - Делаем красиво
+### Changed
+1. В mkdocs.yml подключаем кастомный шаблон - [features](mkdocs.yml#L5)
+2. [header](overrides\partials\header.html)
+3. Чтобы контент не налезал на фиксированную шапку - [body](docs\styles.css#L2)
+   1. [extra_css](mkdocs.yml#L23)
+
+Результат:
+Наверху тёмная панель Bootstrap 5, прилипшая (fixed-top).
+Слева логотип/название проекта.
+Справа кнопка-гамбургер на мобильных → открывает меню.
+В шапке встроен Pagefind-поиск.
+Сайдбар можно оставить (он будет работать как «дублирующая» навигация), или отключить.
+
+---------------------------------------------------------------
 ## [v.1.0.0] - 2025-08-16 GitHub Pages - Deploy from branch → gh-pages → /(root).
 ### Changed
 Какая ветка сейчас используется для GitHub Pages?

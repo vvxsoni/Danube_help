@@ -1,5 +1,50 @@
+<!-- overrides/partials/header.html -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top shadow">
+  <div class="container-fluid">
+    <a class="navbar-brand fw-bold" href="{{ config.site_url | default(nav.homepage.url, true) }}">
+      {{ config.site_name }}
+    </a>
+
+    <!-- Кнопка гамбургер -->
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarDocs" aria-controls="navbarDocs" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <!-- Меню -->
+    <div class="collapse navbar-collapse" id="navbarDocs">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        {% for nav_item in nav %}
+          <li class="nav-item">
+            <a class="nav-link {% if nav_item.active %}active{% endif %}" href="{{ nav_item.url | url }}">
+              {{ nav_item.title }}
+            </a>
+          </li>
+        {% endfor %}
+      </ul>
+
+      <!-- Поиск Pagefind -->
+      <form class="d-flex" role="search">
+        <div id="search" style="min-width:250px;"></div>
+      </form>
+    </div>
+  </div>
+</nav>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+<script>
+  window.addEventListener('DOMContentLoaded', () => {
+    new PagefindUI({
+      element: "#search",
+      showSubResults: true
+    });
+  });
+</script>
+
 <!-- Pagefind search box в шапке -->
-<div id="search-header" style="margin-left: auto; margin-right: 1rem;"></div>
+<!-- <div id="search-header" style="margin-left: auto; margin-right: 1rem;"></div>
 
 <script>
   document.addEventListener("DOMContentLoaded", () => {
@@ -8,4 +53,4 @@
       showSubResults: true
     });
   });
-</script>
+</script> -->
