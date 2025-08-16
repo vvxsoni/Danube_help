@@ -2,7 +2,7 @@ name: Deploy Documentation
 
 on:
   push:
-    branches: [ main ]
+    branches: [ main ]  # Собираем при пуше в main
 
 permissions:
   contents: write
@@ -12,25 +12,30 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      # 1. Клонируем репозиторий
       - uses: actions/checkout@v4
 
+      # 2. Устанавливаем Python
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
           python-version: '3.x'
 
-      - name: Install MkDocs + theme + Pagefind CLI
+      # 3. Устанавливаем MkDocs, Material и Pagefind CLI
+      - name: Install dependencies
         run: |
-          pip install --upgrade pip
+          python -m pip install --upgrade pip
           pip install mkdocs mkdocs-material "pagefind[bin]"
-          python -m pagefind --version
 
+      # 4. Строим сайт MkDocs
       - name: Build MkDocs site
         run: mkdocs build --clean
 
+      # 5. Индексируем контент Pagefind
       - name: Generate Pagefind index
-        run: python -m pagefind --site ./site --output-subdir pagefind
+        run: python -m pagefind --site ./site
 
+      # 6. Деплой на GitHub Pages
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v4
         with:

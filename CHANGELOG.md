@@ -2,6 +2,21 @@ MkDocs_Pagefind_GitHub_Pages
 
 # **Документация** - меняем технологию на **MkDocs_Pagefind_GitHub_Pages**
 
+## [v.1.0.0] - 2025-08-16 Чиним деплой, чтобы все индексы создавались на GitHub Pages
+### Changed
+1. рабочий GitHub Actions workflow, который:
+   1. Ставит Python и Pagefind.
+   2. Собирает сайт MkDocs. 
+      1. Шаг 4: mkdocs build — собирает сайт в `site/`. - [Build MkDocs site](.github\workflows\deploy.yml#L31)
+   3. Индексирует контент Pagefind.
+      1. Шаг 5: Pagefind создаёт `site/pagefind/` с индексом. - [Generate Pagefind index](.github\workflows\deploy.yml#L35)
+   4. Деплоит готовый сайт на GitHub Pages.
+      1. Шаг 6: actions-gh-pages публикует весь `site/` на GitHub Pages. - [Deploy to GitHub Pages](.github\workflows\deploy.yml#L39)
+В итоге:
+Поле поиска Pagefind в шапке.
+Поиск работает для кириллицы.
+Сайт полностью автоматический — пуш в main → сайт обновлён.
+---------------------------------------------------------------
 ## [v.1.0.0] - 2025-08-16 Делаем поиск в шапке
 ### Changed
 1. Коммитим новые файлы overrides/partials/header.html и обновлённый mkdocs.yml.
