@@ -2,6 +2,13 @@ MkDocs_Pagefind_GitHub_Pages
 
 # **Документация** - меняем технологию на **MkDocs_Pagefind_GitHub_Pages**
 
+## [v.1.0.0] - 2025-08-16 Делаем поиск в шапке
+### Changed
+1. Коммитим новые файлы overrides/partials/header.html и обновлённый mkdocs.yml.
+2. Пушим в main → GitHub Actions соберёт сайт.
+3. В шапке сайта появится поле поиска Pagefind, работающее на всех страницах, без вставки <div> в index.md.
+
+---------------------------------------------------------------
 ## [v.1.0.0] - 2025-08-16 Install MkDocs + theme + Pagefind CLI
 ### Changed
 1. В деплое исправили ссылку на [Install MkDocs + theme + Pagefind CLI](.github\workflows\deploy.yml#L22)

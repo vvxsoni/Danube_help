@@ -1,6 +1,7 @@
-site_name: Документация проекта
+site_name: Документация ИС ЕМЛС «Дунай»
 theme:
   name: material
+  custom_dir: overrides
 
 nav:
   - Введение: index.md
