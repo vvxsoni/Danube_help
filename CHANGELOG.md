@@ -2,6 +2,14 @@ MkDocs_Pagefind_GitHub_Pages
 
 # **Документация** - меняем технологию на **MkDocs_Pagefind_GitHub_Pages**
 
+## [v.1.0.0] - 2025-08-16 GitHub Pages - Deploy from branch → gh-pages → /(root).
+### Changed
+Какая ветка сейчас используется для GitHub Pages?
+Зайди в GitHub → Settings → Pages
+В разделе Build and deployment смотри, что выбрано:
+должно быть Deploy from branch → gh-pages → /(root).
+
+---------------------------------------------------------------
 ## [v.1.0.0] - 2025-08-16 Чиним деплой, чтобы все индексы создавались на GitHub Pages
 ### Changed
 1. рабочий GitHub Actions workflow, который:
@@ -16,6 +24,7 @@ MkDocs_Pagefind_GitHub_Pages
 Поле поиска Pagefind в шапке.
 Поиск работает для кириллицы.
 Сайт полностью автоматический — пуш в main → сайт обновлён.
+
 ---------------------------------------------------------------
 ## [v.1.0.0] - 2025-08-16 Делаем поиск в шапке
 ### Changed
