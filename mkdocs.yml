@@ -9,6 +9,12 @@ theme:
     - navigation.top          # кнопка "вверх"
     - header.autohide         # шапка прилипала
     - toc.integrate           # оглавление в боковой панели    
+markdown_extensions:
+  - toc
+  - admonition
+  - codehilite
+  - pymdownx.superfences
+  - attr_list    
 nav:
   - Введение: index.md
   - Руководство: guide.md
