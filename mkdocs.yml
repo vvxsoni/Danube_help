@@ -15,6 +15,7 @@ markdown_extensions:
   - codehilite
   - pymdownx.superfences
   - attr_list    
+  - pymdownx.inlinehilite     # плагин Python
 nav:
   - Введение: index.md
   - Руководство: guide.md
