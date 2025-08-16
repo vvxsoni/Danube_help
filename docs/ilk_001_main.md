@@ -13,6 +13,27 @@ _фыввыфа_
 - `В ПРОВОДКЕ`{.quick-highlight.stat_prov}  
 - `ВЫПОЛНЕНА`{.quick-highlight.stat_vik}  
 
+<span class="quick-highlight important">Важно</span>  
+<span class="quick-highlight danger">Ошибка</span>  
+<span class="quick-highlight success">Успех</span>  
+<span class="quick-highlight warning">Внимание</span>  
+<span class="quick-highlight stat_die">ДЕЙСТВУЮЩЕЙ</span>  
+<span class="quick-highlight stat_prov">В ПРОВОДКЕ</span>  
+<span class="quick-highlight stat_vik">ВЫПОЛНЕНА</span>  
+
+
+- <span class="quick-highlight important">Важно</span>: Номер квитанции по формату ГГ012345
+- <span class="quick-highlight danger">Ошибка</span>: Можно ввести некорректное значение
+- <span class="quick-highlight success">Успех</span>: Автоматическая генерация прошла
+
+
+| Статус | Описание |
+|--------|----------|
+| <span class="quick-highlight stat_die">ДЕЙСТВУЮЩЕЙ</span> | Заявка активна |
+| <span class="quick-highlight stat_prov">В ПРОВОДКЕ</span> | Проводка выполняется |
+| <span class="quick-highlight stat_vik">ВЫПОЛНЕНА</span> | Заявка завершена |
+
+
 
 Пример списка:
 
