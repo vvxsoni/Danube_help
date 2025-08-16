@@ -6,6 +6,7 @@ nav:
   - Введение: index.md
   - Руководство: guide.md
   - Видеоуроки: video.md
+  - ПЛС ЧЕРНОМОРСК: ilk_001_main.md
 
 extra_javascript:
   - pagefind/pagefind-ui.js
