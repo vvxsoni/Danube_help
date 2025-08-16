@@ -1,4 +1,32 @@
 /* Чтобы контент не налезал на фиксированную шапку */
-body {
+/* body {
   padding-top: 70px; /* высота navbar */
+} */
+
+/* Чтобы поиск не ломал шапку */
+.pagefind-search-container {
+  position: absolute;
+  right: 1rem;
+  top: 0.75rem;
+  max-width: 350px;
+  width: 100%;
+}
+
+.pagefind-ui {
+  font-size: 0.9rem;
+}
+
+/* Результаты поиска поверх контента */
+.pagefind-ui__drawer {
+  position: absolute !important;
+  top: 3rem; /* высота шапки */
+  right: 1rem;
+  left: auto;
+  z-index: 1000;
+  max-height: 70vh;
+  overflow-y: auto;
+  background: var(--md-default-bg-color);
+  border: 1px solid var(--md-default-fg-color--lighter);
+  border-radius: 0.5rem;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.2);
 }
