@@ -4,6 +4,11 @@ MkDocs_Pagefind_GitHub_Pages
 
 ## [v.1.0.0] - 2025-08-16 MkDocs_Pagefind_GitHub_Pages
 ### Changed
+1. В деплое меняем версию питона, т.к. сыпет ошибки [python-version: 3.x](.github\workflows\deploy.yml#L18)
+
+---------------------------------------------------------------
+## [v.1.0.0] - 2025-08-16 MkDocs_Pagefind_GitHub_Pages
+### Changed
 1. Поменял меню 
 
 ---------------------------------------------------------------
