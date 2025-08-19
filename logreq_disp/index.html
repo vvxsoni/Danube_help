@@ -1,0 +1,555 @@
+
+<!doctype html>
+<html lang="ru" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../logreq/">
+      
+      
+        <link rel="next" href="../ilk_001_main/">
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.17">
+    
+    
+      
+        <title>Ввод заявок Диспетчером - Документация ИС «ЕМЛС Дунай» • «ПЛС Черноморск»</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.7e37652d.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../pagefind/pagefind-ui.css">
+    
+      <link rel="stylesheet" href="../styles.css">
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#-" class="md-skip">
+          Перейти к содержанию
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+  
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Верхний колонтитул">
+    <a href=".." title="Документация ИС «ЕМЛС Дунай» • «ПЛС Черноморск»" class="md-header__button md-logo" aria-label="Документация ИС «ЕМЛС Дунай» • «ПЛС Черноморск»" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Документация ИС «ЕМЛС Дунай» • «ПЛС Черноморск»
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Ввод заявок Диспетчером
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Поиск" placeholder="Поиск" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Поиск">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Очистить" aria-label="Очистить" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Инициализация поиска
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+  <!-- <div id="search" class="md-search"></div>
+  <script>
+    window.addEventListener('DOMContentLoaded', () => {
+      new PagefindUI({
+        element: "#search",
+        showSubResults: true
+      });
+    });
+  </script> -->
+
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--integrated" aria-label="Навигация" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Документация ИС «ЕМЛС Дунай» • «ПЛС Черноморск»" class="md-nav__button md-logo" aria-label="Документация ИС «ЕМЛС Дунай» • «ПЛС Черноморск»" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Документация ИС «ЕМЛС Дунай» • «ПЛС Черноморск»
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Введение
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../register/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Регистрация
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../logreq/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Ввод заявок
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    Ввод заявок Диспетчером
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    Ввод заявок Диспетчером
+    
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Содержание">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Содержание
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#-" class="md-nav__link">
+    <span class="md-ellipsis">
+      ЖЗА - ввод заявок от имени Диспетчера ЛС
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="ЖЗА - ввод заявок от имени Диспетчера ЛС">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Эпизоды
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ilk_001_main/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ПЛС ЧЕРНОМОРСК
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cheatsheet/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    CheatSheet
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+  <h1>Ввод заявок Диспетчером</h1>
+
+<h2 id="-">ЖЗА - ввод заявок от имени Диспетчера ЛС<a class="headerlink" href="#-" title="Permanent link">&para;</a></h2>
+<p><mark><strong>2023-06-22</strong></mark> ◄ <code>дата публикации</code></p>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/ufeNsJdoG7Y" frameborder="0" allowfullscreen></iframe>
+
+<p>Кликните <strong>на эпизод</strong> и сразу откроется нужный момент видео.</p>
+<h3 id="_1">Эпизоды<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h3>
+<ul>
+<li>🎬 <strong>00:00</strong> — <a href="https://www.youtube.com/embed/PO5WMRmGNJg?start=0" target="_blank">Титульный</a></li>
+<li>🎬 <strong>00:03</strong> — <a href="https://www.youtube.com/embed/PO5WMRmGNJg?start=3" target="_blank">Содержание</a></li>
+<li>🎬 <strong>00:15</strong> — <a href="https://www.youtube.com/embed/PO5WMRmGNJg?start=15" target="_blank">Режим создания заявок от имени диспетчера ЛС</a></li>
+<li>🎬 <strong>01:00</strong> — <a href="https://www.youtube.com/embed/PO5WMRmGNJg?start=60" target="_blank">Открываем письмо от Агента</a></li>
+<li>🎬 <strong>01:10</strong> — <a href="https://www.youtube.com/embed/PO5WMRmGNJg?start=70" target="_blank">Кнопка Создать заявку</a></li>
+<li>🎬 <strong>01:20</strong> — <a href="https://www.youtube.com/embed/PO5WMRmGNJg?start=80" target="_blank">Выбрать Агента</a></li>
+<li>🎬 <strong>01:40</strong> — <a href="https://www.youtube.com/embed/PO5WMRmGNJg?start=100" target="_blank">Копируем IMO номер судна из заявки</a></li>
+<li>🎬 <strong>01:45</strong> — <a href="https://www.youtube.com/embed/PO5WMRmGNJg?start=105" target="_blank">Вставляем IMO номер в фильтр для поиска судна из справочника</a></li>
+<li>🎬 <strong>01:54</strong> — <a href="https://www.youtube.com/embed/PO5WMRmGNJg?start=114" target="_blank">Выбор судна из справочника для заполения данными в заявку</a></li>
+<li>🎬 <strong>02:40</strong> — <a href="https://www.youtube.com/embed/PO5WMRmGNJg?start=160" target="_blank">Ввод рейсовых данных</a></li>
+<li>🎬 <strong>02:50</strong> — <a href="https://www.youtube.com/embed/PO5WMRmGNJg?start=170" target="_blank">Ввод даты с клавиатуры</a></li>
+<li>🎬 <strong>03:15</strong> — <a href="https://www.youtube.com/embed/PO5WMRmGNJg?start=195" target="_blank">По клавише Tab переход к следующему полю</a></li>
+<li>🎬 <strong>03:20</strong> — <a href="https://www.youtube.com/embed/PO5WMRmGNJg?start=200" target="_blank">Выбираем порт откуда</a></li>
+<li>🎬 <strong>03:31</strong> — <a href="https://www.youtube.com/embed/PO5WMRmGNJg?start=211" target="_blank">Выбираем причал в порту откуда и порт и причал куда</a></li>
+<li>🎬 <strong>04:00</strong> — <a href="https://www.youtube.com/embed/PO5WMRmGNJg?start=240" target="_blank">Ввод осадок</a></li>
+<li>🎬 <strong>04:14</strong> — <a href="https://www.youtube.com/embed/PO5WMRmGNJg?start=254" target="_blank">Ввод груза из списка и массы груза</a></li>
+<li>🎬 <strong>04:33</strong> — <a href="https://www.youtube.com/embed/PO5WMRmGNJg?start=273" target="_blank">Почему надо нажимать СОХРАНИТЬ и не нажимать сразу отправить ?</a></li>
+<li>🎬 <strong>05:02</strong> — <a href="https://www.youtube.com/embed/PO5WMRmGNJg?start=302" target="_blank">После сохранения журнал фильтруется по этому судну</a></li>
+<li>🎬 <strong>05:15</strong> — <a href="https://www.youtube.com/embed/PO5WMRmGNJg?start=315" target="_blank">Хронология (цепочка) операций судна по заявкам</a></li>
+<li>🎬 <strong>05:45</strong> — <a href="https://www.youtube.com/embed/PO5WMRmGNJg?start=345" target="_blank">В ЖЗА видим, что такая заявка уже существует</a></li>
+<li>🎬 <strong>06:15</strong> — <a href="https://www.youtube.com/embed/PO5WMRmGNJg?start=375" target="_blank">Заявку можно удалять</a></li>
+<li>🎬 <strong>07:13</strong> — <a href="https://www.youtube.com/embed/PO5WMRmGNJg?start=433" target="_blank">ПРИМЕР заявки объясняющий почему надо всегда делать поиск в справочнике по ИМО номеру</a></li>
+<li>🎬 <strong>07:41</strong> — <a href="https://www.youtube.com/embed/PO5WMRmGNJg?start=461" target="_blank">Поиск по ИМО - это правильное судно, но переименованное</a></li>
+<li>🎬 <strong>08:04</strong> — <a href="https://www.youtube.com/embed/PO5WMRmGNJg?start=484" target="_blank">Поиск по НАЗВАНИЮ - это другое судно, но с таким же именем</a></li>
+<li>🎬 <strong>08:35</strong> — <a href="https://www.youtube.com/embed/PO5WMRmGNJg?start=515" target="_blank">Выбираем судно с правильным ИМО</a></li>
+<li>🎬 <strong>08:44</strong> — <a href="https://www.youtube.com/embed/PO5WMRmGNJg?start=524" target="_blank">Меняем название из заявки</a></li>
+<li>🎬 <strong>08:55</strong> — <a href="https://www.youtube.com/embed/PO5WMRmGNJg?start=535" target="_blank">Существующее название необходимо вводить со звездочкой</a></li>
+<li>🎬 <strong>09:47</strong> — <a href="https://www.youtube.com/embed/PO5WMRmGNJg?start=587" target="_blank">Ввод рейсовых данных</a></li>
+<li>🎬 <strong>10:45</strong> — <a href="https://www.youtube.com/embed/PO5WMRmGNJg?start=645" target="_blank">Сохраняем заявку</a></li>
+<li>🎬 <strong>11:03</strong> — <a href="https://www.youtube.com/embed/PO5WMRmGNJg?start=663" target="_blank">Отправляем заявку</a></li>
+<li>🎬 <strong>11:18</strong> — <a href="https://www.youtube.com/embed/PO5WMRmGNJg?start=678" target="_blank">PDF с нашей Дельтовской формой заявки</a></li>
+<li>🎬 <strong>11:25</strong> — <a href="https://www.youtube.com/embed/PO5WMRmGNJg?start=685" target="_blank">Загрузка в заявку вложения из письма агента</a></li>
+<li>🎬 <strong>11:58</strong> — <a href="https://www.youtube.com/embed/PO5WMRmGNJg?start=718" target="_blank">Восклицательные знаки в ЖЗА возле названий судов</a></li>
+<li>🎬 <strong>12:25</strong> — <a href="https://www.youtube.com/embed/PO5WMRmGNJg?start=745" target="_blank">Открываем справочник судов из заявки для корректировки данных в справочнике</a></li>
+<li>🎬 <strong>12:47</strong> — <a href="https://www.youtube.com/embed/PO5WMRmGNJg?start=767" target="_blank">Редактирование судна в справочнике</a></li>
+<li>🎬 <strong>13:00</strong> — <a href="https://www.youtube.com/embed/PO5WMRmGNJg?start=780" target="_blank">Переименование судна</a></li>
+<li>🎬 <strong>13:30</strong> — <a href="https://www.youtube.com/embed/PO5WMRmGNJg?start=810" target="_blank">Кнопки копировать/вставить - иконки-кнопки</a></li>
+<li>🎬 <strong>13:55</strong> — <a href="https://www.youtube.com/embed/PO5WMRmGNJg?start=835" target="_blank">Копирование названия и переименование с записью в предыдущее название</a></li>
+<li>🎬 <strong>14:20</strong> — <a href="https://www.youtube.com/embed/PO5WMRmGNJg?start=860" target="_blank">Кнопка скопировать все поля</a></li>
+<li>🎬 <strong>14:32</strong> — <a href="https://www.youtube.com/embed/PO5WMRmGNJg?start=872" target="_blank">Сохранить изменения в справочнике</a></li>
+<li>🎬 <strong>14:54</strong> — <a href="https://www.youtube.com/embed/PO5WMRmGNJg?start=894" target="_blank">Как убрать значки с восклицательным знаков в ЖЗА ?</a></li>
+<li>🎬 <strong>15:33</strong> — <a href="https://www.youtube.com/embed/PO5WMRmGNJg?start=933" target="_blank">Как обновить ЖЗА без перезагрузки страницы ?</a></li>
+<li>🎬 <strong>16:00</strong> — <a href="https://www.youtube.com/embed/PO5WMRmGNJg?start=960" target="_blank">Если меняется флаг судна, то надо менять MMSI</a></li>
+<li>🎬 <strong>17:00</strong> — <a href="https://www.youtube.com/embed/PO5WMRmGNJg?start=1020" target="_blank">Если меняется флаг судна, то надо менять MMSI - уже в другом судне</a></li>
+<li>🎬 <strong>18:00</strong> — <a href="https://www.youtube.com/embed/PO5WMRmGNJg?start=1080" target="_blank">Необходимо постоянно поддерживать справочник судов в актуальном состоянии!</a></li>
+<li>🎬 <strong>18:32</strong> — <a href="https://www.youtube.com/embed/PO5WMRmGNJg?start=1112" target="_blank">ПРИМЕР ввода заявки по КАРАВУ судов</a></li>
+<li>🎬 <strong>19:52</strong> — <a href="https://www.youtube.com/embed/PO5WMRmGNJg?start=1192" target="_blank">Ввод судна в составе каравана</a></li>
+<li>🎬 <strong>20:39</strong> — <a href="https://www.youtube.com/embed/PO5WMRmGNJg?start=1239" target="_blank">Нажимаем СОХРАНИТЬ</a></li>
+<li>🎬 <strong>21:25</strong> — <a href="https://www.youtube.com/embed/PO5WMRmGNJg?start=1285" target="_blank">Находим ошибку ввода в рейсовых данных</a></li>
+<li>🎬 <strong>21:33</strong> — <a href="https://www.youtube.com/embed/PO5WMRmGNJg?start=1293" target="_blank">Открываем редактирование созданной заявки</a></li>
+<li>🎬 <strong>22:00</strong> — <a href="https://www.youtube.com/embed/PO5WMRmGNJg?start=1320" target="_blank">Определяем, что пропущена заявка !</a></li>
+<li>🎬 <strong>22:15</strong> — <a href="https://www.youtube.com/embed/PO5WMRmGNJg?start=1335" target="_blank">Отправка заявки в PDF</a></li>
+<li>🎬 <strong>22:25</strong> — <a href="https://www.youtube.com/embed/PO5WMRmGNJg?start=1345" target="_blank">PDF форма заявки на КАРАВАН</a></li>
+<li>🎬 <strong>22:40</strong> — <a href="https://www.youtube.com/embed/PO5WMRmGNJg?start=1360" target="_blank">Загрузка в заявку вложения из письма агента</a></li>
+<li>🎬 <strong>23:05</strong> — <a href="https://www.youtube.com/embed/PO5WMRmGNJg?start=1385" target="_blank">Как открыть цепочку заявок по нужному судну ?</a></li>
+<li>🎬 <strong>23:29</strong> — <a href="https://www.youtube.com/embed/PO5WMRmGNJg?start=1409" target="_blank">Иконка-воронка - это фильтр по судну показывающий цепочку заявок(операций)</a></li>
+<li>🎬 <strong>24:10</strong> — <a href="https://www.youtube.com/embed/PO5WMRmGNJg?start=1450" target="_blank">ARTEY - пример пропущенной заявки</a></li>
+<li>🎬 <strong>24:56</strong> — <a href="https://www.youtube.com/embed/PO5WMRmGNJg?start=1496" target="_blank">ALMERIA - пример неправильно указанного времени</a></li>
+<li>🎬 <strong>25:22</strong> — <a href="https://www.youtube.com/embed/PO5WMRmGNJg?start=1522" target="_blank">ALMERIA - как исправить цепочку, чтобы не было красного ?</a></li>
+<li>🎬 <strong>25:45</strong> — <a href="https://www.youtube.com/embed/PO5WMRmGNJg?start=1545" target="_blank">ALMERIA - диспетчер ЛС может уточнить время</a></li>
+<li>🎬 <strong>26:15</strong> — <a href="https://www.youtube.com/embed/PO5WMRmGNJg?start=1575" target="_blank">ALMERIA - обновляем таблицу и очищаем сфетофоры</a></li>
+</ul>
+<hr />
+<p>✅ <strong>Инструкция : ЖУРНАЛ ЗАЯВОК АГЕНТОВ - ввод заявок от имени Диспетчера ЛС</strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  К началу
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      <script id="__config" type="application/json">{"base": "..", "features": ["navigation.sections", "navigation.expand", "navigation.top", "header.autohide", "toc.integrate", "content.code.copy", "content.tabs.link", "content.tooltips"], "search": "../assets/javascripts/workers/search.973d3a69.min.js", "tags": null, "translations": {"clipboard.copied": "\u0421\u043a\u043e\u043f\u0438\u0440\u043e\u0432\u0430\u043d\u043e \u0432 \u0431\u0443\u0444\u0435\u0440", "clipboard.copy": "\u041a\u043e\u043f\u0438\u0440\u043e\u0432\u0430\u0442\u044c \u0432 \u0431\u0443\u0444\u0435\u0440", "search.result.more.one": "\u0415\u0449\u0451 1 \u043d\u0430 \u044d\u0442\u043e\u0439 \u0441\u0442\u0440\u0430\u043d\u0438\u0446\u0435", "search.result.more.other": "\u0415\u0449\u0451 # \u043d\u0430 \u044d\u0442\u043e\u0439 \u0441\u0442\u0440\u0430\u043d\u0438\u0446\u0435", "search.result.none": "\u0421\u043e\u0432\u043f\u0430\u0434\u0435\u043d\u0438\u0439 \u043d\u0435 \u043d\u0430\u0439\u0434\u0435\u043d\u043e", "search.result.one": "\u041d\u0430\u0439\u0434\u0435\u043d\u043e 1 \u0441\u043e\u0432\u043f\u0430\u0434\u0435\u043d\u0438\u0435", "search.result.other": "\u041d\u0430\u0439\u0434\u0435\u043d\u043e \u0441\u043e\u0432\u043f\u0430\u0434\u0435\u043d\u0438\u0439: #", "search.result.placeholder": "\u041d\u0430\u0447\u043d\u0438\u0442\u0435 \u043f\u0435\u0447\u0430\u0442\u0430\u0442\u044c \u0434\u043b\u044f \u043f\u043e\u0438\u0441\u043a\u0430", "search.result.term.missing": "\u041e\u0442\u0441\u0443\u0442\u0441\u0442\u0432\u0443\u0435\u0442", "select.version": "\u0412\u044b\u0431\u0435\u0440\u0438\u0442\u0435 \u0432\u0435\u0440\u0441\u0438\u044e"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.92b07e13.min.js"></script>
+      
+        <script src="../pagefind/pagefind-ui.js"></script>
+      
+    
+  </body>
+</html>
