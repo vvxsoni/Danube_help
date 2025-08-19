@@ -40,7 +40,7 @@ markdown_extensions:
   - pymdownx.smartsymbols     # спец. символы  
 nav:
   - Введение: index.md
-  - Руководство: guide.md
+  - Регистрация: register.md
   - Видеоуроки: video.md
   - ПЛС ЧЕРНОМОРСК: ilk_001_main.md
   - CheatSheet: cheatsheet.md   # 🔥 добавляем мой справочник
