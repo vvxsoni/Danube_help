@@ -1,6 +1,6 @@
-## ЖЗА - ввод заявок от имени Диспетчера ЛС
-==**2023-06-22**== ◄ `дата публикации`
-<iframe width="560" height="315" src="https://www.youtube.com/embed/ufeNsJdoG7Y" frameborder="0" allowfullscreen></iframe>
+## ЖЗА - Ввод заявок диспетчером ЛС • Привязка к справочнику судов
+==**2023-10-15**== ◄ `дата публикации`
+<iframe width="560" height="315" src="https://www.youtube.com/embed/PO5WMRmGNJg" frameborder="0" allowfullscreen></iframe>
 
 Кликните **на эпизод** и сразу откроется нужный момент видео.
 
