@@ -641,7 +641,13 @@ flowchart TB
   D -- Да --&gt; E{status_new = 30&lt;br/&gt;выбрали ВИКОНАНА}
   E -- Да --&gt; F[status_save = 30&lt;br/&gt;ВИКОНАНА] --&gt; Z
   E -- Нет --&gt; G[status_save = 20&lt;br/&gt;У ПРОВОДЦІ] --&gt; Z
-  D -- Нет --&gt; H[status_save = status_new&lt;br/&gt;будет выбранный статус] --&gt; Z</code></pre>
+  D -- Нет --&gt; H[status_save = status_new&lt;br/&gt;будет выбранный статус] --&gt; Z
+%% Чтобы стрелки выглядели как из углов ромба
+  B -.-&gt;|Нет| D
+  D -.-&gt;|Нет| H
+  D -.-&gt;|Да| E
+  E -.-&gt;|Нет| G
+  E -.-&gt;|Да| F</code></pre>
 
 
 
