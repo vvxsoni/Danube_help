@@ -650,12 +650,12 @@ _фыввыфа_
 
 ```mermaid 
 flowchart TB
-  A([Старт]) --&gt; B{status_new пусто?}
+  A([Старт]) --&gt; B{status_new = status_old?}
   B -- Да --&gt; C[status_save = status_old] --&gt; Z([Конец])
-  B -- Нет --&gt; D{status_old = 10?}
-  D -- Да --&gt; E{status_new = 30?}
-  E -- Да --&gt; F[status_save = 30] --&gt; Z
-  E -- Нет --&gt; G[status_save = 20] --&gt; Z
+  B -- Нет --&gt; D{status_old = 10?\n(ДІЮЧА)}
+  D -- Да --&gt; E{status_new = 30?\n(ВИКОНАНА)}
+  E -- Да --&gt; F[status_save = 30\n(ВИКОНАНА)] --&gt; Z
+  E -- Нет --&gt; G[status_save = 20\n(У ПРОВОДЦІ)] --&gt; Z
   D -- Нет --&gt; H[status_save = status_new] --&gt; Z</code></pre>
 
 
