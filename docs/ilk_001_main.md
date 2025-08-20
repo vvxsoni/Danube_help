@@ -84,11 +84,11 @@ flowchart TB
 
 ```mermaid 
 flowchart TB
-  A([Старт]) --> B{status_new пусто?}
+  A([Старт]) --> B{status_new = status_old?}
   B -- Да --> C[status_save = status_old] --> Z([Конец])
-  B -- Нет --> D{status_old = 10?}
-  D -- Да --> E{status_new = 30?}
-  E -- Да --> F[status_save = 30] --> Z
-  E -- Нет --> G[status_save = 20] --> Z
+  B -- Нет --> D{status_old = 10?\n(ДІЮЧА)}
+  D -- Да --> E{status_new = 30?\n(ВИКОНАНА)}
+  E -- Да --> F[status_save = 30\n(ВИКОНАНА)] --> Z
+  E -- Нет --> G[status_save = 20\n(У ПРОВОДЦІ)] --> Z
   D -- Нет --> H[status_save = status_new] --> Z
 ```
