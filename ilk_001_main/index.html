@@ -566,16 +566,14 @@ _фыввыфа_
 <p>В данном разделе будем публиковать инструкции к новым режимам на сайте </p>
 </blockquote>
 <h1 id="_4">Алгоритм смены статусов<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h1>
-<pre> ```mermaid 
-flowchart TB
-  A([Старт]) --> B{status_new пусто?}
-  B -- Да --> C[status_save = status_old] --> Z([Конец])
-  B -- Нет --> D{status_old = 10?}
-  D -- Да --> E{status_new = 30?}
-  E -- Да --> F[status_save = 30] --> Z
-  E -- Нет --> G[status_save = 20] --> Z
-  D -- Нет --> H[status_save = status_new] --> Z
-``` </pre>
+<pre class="mermaid"><code>flowchart TB
+  A([Старт]) --&gt; B{status_new пусто?}
+  B -- Да --&gt; C[status_save = status_old] --&gt; Z([Конец])
+  B -- Нет --&gt; D{status_old = 10?}
+  D -- Да --&gt; E{status_new = 30?}
+  E -- Да --&gt; F[status_save = 30] --&gt; Z
+  E -- Нет --&gt; G[status_save = 20] --&gt; Z
+  D -- Нет --&gt; H[status_save = status_new] --&gt; Z</code></pre>
 
 
 
