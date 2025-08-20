@@ -58,7 +58,7 @@ _фыввыфа_
 > В данном разделе будем публиковать инструкции к новым режимам на сайте 
 
 # Алгоритм смены статусов
-<pre> ```mermaid 
+```mermaid 
 flowchart TB
   A([Старт]) --> B{status_new пусто?}
   B -- Да --> C[status_save = status_old] --> Z([Конец])
@@ -67,4 +67,4 @@ flowchart TB
   E -- Да --> F[status_save = 30] --> Z
   E -- Нет --> G[status_save = 20] --> Z
   D -- Нет --> H[status_save = status_new] --> Z
-``` </pre>
+```
