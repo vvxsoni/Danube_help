@@ -73,12 +73,13 @@ _фыввыфа_
 # Алгоритм смены статусов
 
 ```mermaid 
+%%{init: {'flowchart': {'htmlLabels': true, 'curve': 'stepAfter'}}}%%
 flowchart TB
   A([Старт]) --> B{status_new = status_old ?}
-  B -- Да --> C[status_save = status_old] --> Z([Конец])
-  B -- Нет --> D{status_old = 10<br/>ДІЮЧА}
-  D -- Да --> E{status_new = 30<br/>ВИКОНАНА}
+  B -- Да --> C[status_save = status_old<br/>не меняли] --> Z([Конец])
+  B -- Нет_поменяли статус --> D{status_old = 10<br/>была ДІЮЧА}
+  D -- Да --> E{status_new = 30<br/>выбрали ВИКОНАНА}
   E -- Да --> F[status_save = 30<br/>ВИКОНАНА] --> Z
   E -- Нет --> G[status_save = 20<br/>У ПРОВОДЦІ] --> Z
-  D -- Нет --> H[status_save = status_new] --> Z
+  D -- Нет --> H[status_save = status_new<br/>будет выбранный статус] --> Z
 ```
