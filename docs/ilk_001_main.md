@@ -76,9 +76,9 @@ _фыввыфа_
 flowchart TB
   A([Старт]) --> B{status_new = status_old ?}
   B -- Да --> C[status_save = status_old] --> Z([Конец])
-  B -- Нет --> D{status_old = 10\\nДІЮЧА}
-  D -- Да --> E{status_new = 30\\nВИКОНАНА}
-  E -- Да --> F[status_save = 30\\nВИКОНАНА] --> Z
-  E -- Нет --> G[status_save = 20\\nУ ПРОВОДЦІ] --> Z
+  B -- Нет --> D{status_old = 10<br/>ДІЮЧА}
+  D -- Да --> E{status_new = 30<br/>ВИКОНАНА}
+  E -- Да --> F[status_save = 30<br/>ВИКОНАНА] --> Z
+  E -- Нет --> G[status_save = 20<br/>У ПРОВОДЦІ] --> Z
   D -- Нет --> H[status_save = status_new] --> Z
 ```
