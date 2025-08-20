@@ -16,7 +16,11 @@ markdown_extensions:
   - toc
   - admonition
   - pymdownx.details          # раскрывающиеся блоки (??? note)
-  - pymdownx.superfences      # вкладки (=== "Python")
+  - pymdownx.superfences:      # вкладки (=== "Python")
+    custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
   - pymdownx.tabbed:
       alternate_style: true   # красивый стиль вкладок
   - attr_list                 # классы для кнопок и стилей
