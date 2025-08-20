@@ -75,9 +75,9 @@ _фыввыфа_
 ```mermaid 
 %%{init: {'flowchart': {'htmlLabels': true, 'curve': 'stepAfter'}}}%%
 flowchart TB
-  A([Старт]) --> B{status_new = status_old ?}
+  A([Старт]) --> B{status_new = status_old ?<br/>статус прежний ?}
   B -- Да --> C[status_save = status_old<br/>не меняли] --> Z([Конец])
-  B -- Нет_поменяли статус --> D{status_old = 10<br/>была ДІЮЧА}
+  B -- Нет --> D{status_old = 10<br/>была ДІЮЧА}
   D -- Да --> E{status_new = 30<br/>выбрали ВИКОНАНА}
   E -- Да --> F[status_save = 30<br/>ВИКОНАНА] --> Z
   E -- Нет --> G[status_save = 20<br/>У ПРОВОДЦІ] --> Z
