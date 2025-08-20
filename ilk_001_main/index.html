@@ -565,15 +565,133 @@ _фыввыфа_
 <blockquote>
 <p>В данном разделе будем публиковать инструкции к новым режимам на сайте </p>
 </blockquote>
-<h1 id="_4">Алгоритм смены статусов<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h1>
-<pre class="mermaid"><code>flowchart TB
-  A([Старт]) --&gt; B{status_new пусто?}
-  B -- Да --&gt; C[status_save = status_old] --&gt; Z([Конец])
-  B -- Нет --&gt; D{status_old = 10?}
-  D -- Да --&gt; E{status_new = 30?}
-  E -- Да --&gt; F[status_save = 30] --&gt; Z
-  E -- Нет --&gt; G[status_save = 20] --&gt; Z
-  D -- Нет --&gt; H[status_save = status_new] --&gt; Z</code></pre>
+<h1 id="_4">Таблица переходов значений статусов<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h1>
+<table>
+<thead>
+<tr>
+<th>Было (status_old)</th>
+<th>Новый (status_new)</th>
+<th>Итог (status_save)</th>
+<th>Комментарий</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>10 (действ.)</td>
+<td>10 (ДІЕ)</td>
+<td>10 (ДІЕ)</td>
+<td>Не меняли (ДІЕ)</td>
+</tr>
+<tr>
+<td>10 (действ.)</td>
+<td>20 (У ПРОВ)</td>
+<td>20 (У ПРОВ)</td>
+<td>Переводим в "в проводке"</td>
+</tr>
+<tr>
+<td>10 (действ.)</td>
+<td>30 (ВИК)</td>
+<td>30 (ВИК)</td>
+<td>Сразу в "выполнена" (ВИК)</td>
+</tr>
+<tr>
+<td>20 (в проводке)</td>
+<td>20 (У ПРОВ)</td>
+<td>20 (У ПРОВ)</td>
+<td>Не меняли (У ПРОВ)</td>
+</tr>
+<tr>
+<td>20 (в проводке)</td>
+<td>10 (ДІЕ)</td>
+<td>10 (ДІЕ)</td>
+<td>Сохраняем выбранный (ДІЕ)</td>
+</tr>
+<tr>
+<td>20 (в проводке)</td>
+<td>30 (ВИК)</td>
+<td>30 (ВИК)</td>
+<td>Сохраняем выбранный (ВИК)</td>
+</tr>
+<tr>
+<td>30 (выполнена)</td>
+<td>30 (ВИК)</td>
+<td>30 (ВИК)</td>
+<td>Не меняли (ВИК)</td>
+</tr>
+<tr>
+<td>30 (выполнена)</td>
+<td>10 (ДІЕ)</td>
+<td>10 (ДІЕ)</td>
+<td>Сохраняем выбранный (ДІЕ)</td>
+</tr>
+<tr>
+<td>30 (выполнена)</td>
+<td>20 (У ПРОВ)</td>
+<td>20 (У ПРОВ)</td>
+<td>Сохраняем выбранный (У ПРОВ)</td>
+</tr>
+<tr>
+<td># Алгоритм смены статусов</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>```mermaid</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>flowchart TB</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>A([Старт]) &rarr; B{status_new = status_old?}</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>B -- Да &rarr; C[status_save = status_old] &rarr; Z([Конец])</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>B -- Нет &rarr; D{status_old = 10(ДІЕ)?}</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>D -- Да &rarr; E{status_new = 30(ВИК)?}</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>E -- Да &rarr; F[status_save = 30(ВИК)] &rarr; Z</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>E -- Нет &rarr; G[status_save = 20(У ПРОВ.)] &rarr; Z</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>D -- Нет &rarr; H[status_save = status_new] &rarr; Z```</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
 
 
 
