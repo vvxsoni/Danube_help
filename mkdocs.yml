@@ -32,7 +32,6 @@ markdown_extensions:
   - pymdownx.highlight:
       anchor_linenums: true  
   - codehilite
-  - pymdownx.superfences
   - attr_list    
   - pymdownx.inlinehilite     # плагин Python
   - pymdownx.snippets
