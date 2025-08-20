@@ -635,9 +635,9 @@ _фыввыфа_
 <h1 id="_5">Алгоритм смены статусов<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h1>
 <pre class="mermaid"><code>%%{init: {'flowchart': {'htmlLabels': true, 'curve': 'stepAfter'}}}%%
 flowchart TB
-  A([Старт]) --&gt; B{status_new = status_old ?}
+  A([Старт]) --&gt; B{status_new = status_old ?&lt;br/&gt;статус прежний ?}
   B -- Да --&gt; C[status_save = status_old&lt;br/&gt;не меняли] --&gt; Z([Конец])
-  B -- Нет_поменяли статус --&gt; D{status_old = 10&lt;br/&gt;была ДІЮЧА}
+  B -- Нет --&gt; D{status_old = 10&lt;br/&gt;была ДІЮЧА}
   D -- Да --&gt; E{status_new = 30&lt;br/&gt;выбрали ВИКОНАНА}
   E -- Да --&gt; F[status_save = 30&lt;br/&gt;ВИКОНАНА] --&gt; Z
   E -- Нет --&gt; G[status_save = 20&lt;br/&gt;У ПРОВОДЦІ] --&gt; Z
