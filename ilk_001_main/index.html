@@ -636,62 +636,17 @@ _фыввыфа_
 <td></td>
 <td></td>
 </tr>
-<tr>
-<td>```mermaid</td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>flowchart TB</td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>A([Старт]) &rarr; B{status_new = status_old?}</td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>B -- Да &rarr; C[status_save = status_old] &rarr; Z([Конец])</td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>B -- Нет &rarr; D{status_old = 10(ДІЕ)?}</td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>D -- Да &rarr; E{status_new = 30(ВИК)?}</td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>E -- Да &rarr; F[status_save = 30(ВИК)] &rarr; Z</td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>E -- Нет &rarr; G[status_save = 20(У ПРОВ.)] &rarr; Z</td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>D -- Нет &rarr; H[status_save = status_new] &rarr; Z```</td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
 </tbody>
 </table>
+<p><code>mermaid 
+flowchart TB
+  A([Старт]) --&gt; B{status_new = status_old?}
+  B -- Да --&gt; C[status_save = status_old] --&gt; Z([Конец])
+  B -- Нет --&gt; D{status_old = 10(ДІЕ)?}
+  D -- Да --&gt; E{status_new = 30(ВИК)?}
+  E -- Да --&gt; F[status_save = 30(ВИК)] --&gt; Z
+  E -- Нет --&gt; G[status_save = 20(У ПРОВ.)] --&gt; Z
+  D -- Нет --&gt; H[status_save = status_new] --&gt; Z</code></p>
 
 
 
