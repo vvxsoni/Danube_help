@@ -641,17 +641,6 @@ _фыввыфа_
 <pre class="mermaid"><code>flowchart TB
   A([Старт]) --&gt; B{status_new = status_old?}
   B -- Да --&gt; C[status_save = status_old] --&gt; Z([Конец])
-  B -- Нет --&gt; D{status_old = 10(ДІЕ)?}
-  D -- Да --&gt; E{status_new = 30(ВИК)?}
-  E -- Да --&gt; F[status_save = 30(ВИК)] --&gt; Z
-  E -- Нет --&gt; G[status_save = 20(У ПРОВ.)] --&gt; Z
-  D -- Нет --&gt; H[status_save = status_new] --&gt; Z
-  ```
-
-```mermaid 
-flowchart TB
-  A([Старт]) --&gt; B{status_new = status_old?}
-  B -- Да --&gt; C[status_save = status_old] --&gt; Z([Конец])
   B -- Нет --&gt; D{status_old = 10?\n(ДІЮЧА)}
   D -- Да --&gt; E{status_new = 30?\n(ВИКОНАНА)}
   E -- Да --&gt; F[status_save = 30\n(ВИКОНАНА)] --&gt; Z
