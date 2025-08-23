@@ -98,3 +98,10 @@ span.quick-highlight.stat_vik  { background-color: deepskyblue; color: black; }
     /* font-weight: bold; */
     font-size: medium;
 }
+
+@media print {
+  .no-break {
+    page-break-inside: avoid;
+    break-inside: avoid;
+  }
+}
