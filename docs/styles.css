@@ -99,15 +99,8 @@ span.quick-highlight.stat_vik  { background-color: deepskyblue; color: black; }
     font-size: medium;
 }
 
-/* @media print {
-  .no-break {
-    page-break-inside: avoid;
-    break-inside: avoid;
-  }
-} */
-
 @media print {
-  h2:has(+ .admonition) {
+  h2:has(+ .admonition) { /* применяется к заголовку , если сразу после него идёт блок с классом .admonition  (то есть !!! note, !!! warning  и т.д.). Это предотвращает ситуацию, когда заголовок оказывается на одной странице, а пояснение — на следующей. */
     page-break-after: avoid;
   }
   h3:has(+ .admonition) {
