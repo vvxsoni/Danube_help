@@ -99,9 +99,19 @@ span.quick-highlight.stat_vik  { background-color: deepskyblue; color: black; }
     font-size: medium;
 }
 
-@media print {
+/* @media print {
   .no-break {
     page-break-inside: avoid;
     break-inside: avoid;
+  }
+} */
+
+@media print {
+  h3:has(+ .admonition) {
+    page-break-after: avoid;
+  }
+
+  .admonition {
+    page-break-inside: avoid;
   }
 }
