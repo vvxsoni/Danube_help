@@ -42,8 +42,8 @@ markdown_extensions:
   - pymdownx.tilde            # ~подстрочный текст~
   - pymdownx.smartsymbols     # спец. символы  
 nav:
-  - Введение: index.md
   - Как это работает: how_it_works.md
+  - Введение: index.md
   - Регистрация: register.md
   - Ввод заявок: logreq.md
   - Ввод заявок Диспетчером: logreq_disp.md
