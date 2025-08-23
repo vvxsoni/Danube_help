@@ -110,4 +110,7 @@ span.quick-highlight.stat_vik  { background-color: deepskyblue; color: black; }
   .admonition {
     page-break-inside: avoid;
   }
+  .print-button {
+    display: none !important;
+  }
 }

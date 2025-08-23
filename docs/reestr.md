@@ -57,6 +57,4 @@
     ![Очистка реестра](images/reestr_009.png)
 
 <!-- <button onclick="window.print()" style="margin: 1em 0; padding: 0.5em 1em; font-size: 1em;"> -->
-<button onclick="window.print()" class="btn btn-primary">
-🖨️ Печатная версия
-</button>
+<button onclick="window.print()" class="btn btn-outline-primary print-button">🖨️ Печатная версия</button>
