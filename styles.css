@@ -107,6 +107,9 @@ span.quick-highlight.stat_vik  { background-color: deepskyblue; color: black; }
 } */
 
 @media print {
+  h2:has(+ .admonition) {
+    page-break-after: avoid;
+  }
   h3:has(+ .admonition) {
     page-break-after: avoid;
   }
