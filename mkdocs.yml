@@ -52,7 +52,7 @@ nav:
   - РІВНІ ДУНАЮ ► ЧАТ - БОТ: instr_video_07_bonilevels.md
   - Проводки ЛС: reestr.md
   - ПЛС ЧЕРНОМОРСК: ilk_001_main.md
-  - CheatSheet: cheatsheet.md   # 🔥 добавляем мой справочник
+#  - CheatSheet: cheatsheet.md   # 🔥 добавляем мой справочник
 
 palette:
     primary: blue
