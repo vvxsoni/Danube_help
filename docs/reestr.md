@@ -56,6 +56,7 @@
     - Выберите в меню **«Реестр → Убрать все кв-ии из реестра»**  
     ![Очистка реестра](images/reestr_009.png)
 
-<button onclick="window.print()" style="margin: 1em 0; padding: 0.5em 1em; font-size: 1em;">
+<!-- <button onclick="window.print()" style="margin: 1em 0; padding: 0.5em 1em; font-size: 1em;"> -->
+<button onclick="window.print()" class="btn btn-primary">
 🖨️ Печатная версия
 </button>
