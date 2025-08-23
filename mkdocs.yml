@@ -43,6 +43,7 @@ markdown_extensions:
   - pymdownx.smartsymbols     # спец. символы  
 nav:
   - Введение: index.md
+  - Как это работает: how_it_works.md
   - Регистрация: register.md
   - Ввод заявок: logreq.md
   - Ввод заявок Диспетчером: logreq_disp.md
