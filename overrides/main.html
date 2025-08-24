@@ -1,5 +1,15 @@
 {% extends "base.html" %}
 
+{% block extrahead %}
+  {{ super() }}
+  <style>
+    .print-button {
+      margin-left: 1rem;
+      cursor: pointer;
+    }
+  </style>
+{% endblock %}
+
 {% block header %}
   {{ super() }}
   <!-- <div id="search" class="md-search"></div>
@@ -11,4 +21,8 @@
       });
     });
   </script> -->
+  {{ super() }}
+  <a class="print-button" href="{{ page.url | replace('.html', '.pdf') }}" target="_blank" title="Версия для печати">
+    🖨️
+  </a>
 {% endblock %}
