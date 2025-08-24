@@ -10,6 +10,7 @@
   </style>
 {% endblock %}
 
+{% import "macros.html" as macros %}
 {% block header %}
   {{ super() }}
   <!-- <div id="search" class="md-search"></div>
@@ -21,16 +22,5 @@
       });
     });
   </script> -->
-
-        <!-- href="{{ page.url }}{{ page.file.name }}.pdf"
-      href="{{ page.file.url | replace('.html', '.pdf') }}" -->
-
-<a class="print-button"
-   href="{% set f = page|attribute('file', default=None) %}
-         {% if f %}{{ page.url }}{{ f.src_path | replace('.md', '.pdf') }}{% endif %}"
-   target="_blank"
-   title="Версия для печати">
-   🖨️
-</a>
-
+   {{ macros.print_pdf_button(page) }}
 {% endblock %}
