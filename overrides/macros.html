@@ -1,7 +1,8 @@
 {% macro print_pdf_button(page) %}
   {% if page and page.file %}
+    {% set pdf_name = page.file.src_path.split('/')[-1] | replace('.md', '.pdf') %}
     <a class="print-button"
-       href="{{ page.url }}{{ page.file.src_path | replace('.md', '.pdf') }}"
+       href="{{ page.url }}{{ pdf_name }}"
        target="_blank"
        title="Версия для печати">
        🖨️
