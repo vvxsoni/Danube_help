@@ -25,15 +25,16 @@
         <!-- href="{{ page.url }}{{ page.file.name }}.pdf"
       href="{{ page.file.url | replace('.html', '.pdf') }}" -->
 
-  {% if page %}
-    {% if page.file %}
-      <a class="print-button"
-        href="{{ page.url }}{{ page.file.src_path | replace('.md', '.pdf') }}"
-        target="_blank"
-        title="Версия для печати">
-        🖨️
-      </a>
-    {% endif %}
+  {% if page is not none %}
+      {% if page.file is not none %}
+          <a class="print-button"
+            href="{{ page.url }}{{ page.file.src_path | replace('.md', '.pdf') }}"
+            target="_blank"
+            title="Версия для печати">
+            🖨️
+          </a>
+      {% endif %}
   {% endif %}
+
 
 {% endblock %}
