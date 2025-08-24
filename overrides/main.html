@@ -21,7 +21,7 @@
       });
     });
   </script> -->
-  <a class="print-button" href="{{ page.url | replace('.html', '.pdf') }}" target="_blank" title="Версия для печати">
+  <a class="print-button" href="{{ page.url }}{{ page.file.name }}.pdf" target="_blank" title="Версия для печати">
     🖨️
   </a>
 {% endblock %}
