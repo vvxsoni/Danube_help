@@ -3,6 +3,10 @@ theme:
   name: material
   language: ru
   custom_dir: overrides
+  palette:
+    - scheme: default
+      primary: blue
+      accent: indigo
   features:
     - navigation.sections     # многоуровневое меню
     - navigation.expand       # раскрывать подразделы
