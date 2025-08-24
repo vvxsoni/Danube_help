@@ -73,3 +73,4 @@ plugins:
   - search: false   # отключаем стандартный поиск MkDocs
   - pdf-export:     # экспорт в PDF
       verbose: true
+      coverpage: false # обложка - чтобы убрать автоматическую титульную страницу
