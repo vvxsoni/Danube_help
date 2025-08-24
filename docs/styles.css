@@ -100,9 +100,9 @@ span.quick-highlight.stat_vik  { background-color: deepskyblue; color: black; }
 }
 
 @media print {
-  h1:first-of-type {
+  /* h1:first-of-type {
     display: none;
-  }
+  } */
   h2:has(+ .admonition) { /* применяется к заголовку , если сразу после него идёт блок с классом .admonition  (то есть !!! note, !!! warning  и т.д.). Это предотвращает ситуацию, когда заголовок оказывается на одной странице, а пояснение — на следующей. */
     page-break-after: avoid;
   }
