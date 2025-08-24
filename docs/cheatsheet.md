@@ -1,4 +1,4 @@
-# 📖 MkDocs Material CheatSheet
+## 📖 MkDocs Material CheatSheet
 
 Полезные примеры оформления документации.
 
