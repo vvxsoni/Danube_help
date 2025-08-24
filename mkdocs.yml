@@ -71,7 +71,3 @@ extra_css:
   - https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css
 plugins:
   - search: false   # отключаем стандартный поиск MkDocs
-  - pdf-export:     # экспорт в PDF
-      verbose: true
-      coverpage: true # обложка - чтобы убрать автоматическую титульную страницу
-      cover_template: templates/cover.html
