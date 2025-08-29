@@ -62,6 +62,8 @@
     - Сформируйте реест 
     - Выберите в меню **«Реестр → Печать реестра PDF»**  
     ![Печать реестра PDF](images/reestr_011_pdf.png)
+    - PDF формируется с одним фото кв-ии на каждой странице
+    ![alt text](images/reestr_013_pdf_photo.png)
 
 <!-- <button onclick="window.print()" style="margin: 1em 0; padding: 0.5em 1em; font-size: 1em;"> -->
 <button onclick="window.print()" class="btn btn-outline-primary print-button">🖨️ Печатная версия</button>
