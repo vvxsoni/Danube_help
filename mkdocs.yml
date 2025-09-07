@@ -51,7 +51,7 @@ nav:
   - Регистрация: register.md
   - Ввод заявок: logreq.md
   - Ввод заявок Диспетчером: logreq_disp.md
-  - Статотчеты: 
+  - Статотчеты : 
       - Дунай: report_01_zagal.md
       - Проведення лоцмана за місяць: report_02_pilot_one_month.md
   - Ошибки в СПР судов: instr_video_05_sprships_01.md
