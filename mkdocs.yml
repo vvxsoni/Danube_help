@@ -51,7 +51,9 @@ nav:
   - Регистрация: register.md
   - Ввод заявок: logreq.md
   - Ввод заявок Диспетчером: logreq_disp.md
-  - Статотчеты: report_01_zagal.md
+  - Статотчеты: 
+    - report_01_zagal.md
+    - Проведення лоцмана за місяць: report_02_pilot_one_month.md
   - Ошибки в СПР судов: instr_video_05_sprships_01.md
   - Парсинг регистров: instr_video_06_sprships_equasis_03.md
   - РІВНІ ДУНАЮ ► ЧАТ - БОТ: instr_video_07_bonilevels.md
