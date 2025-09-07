@@ -16,7 +16,7 @@ theme:
     - content.code.copy       # копирование кода кнопкой
     - content.tabs.link       # вкладки
     - content.tooltips        # всплывающие подсказки    
-    - navigation.tabs         # вкладки в меню
+    #- navigation.tabs         # вкладки в меню
 markdown_extensions:
   - toc
   - admonition
@@ -53,8 +53,9 @@ nav:
   - Ввод заявок: logreq.md
   - Ввод заявок Диспетчером: logreq_disp.md
   - Статотчеты : 
-      - Дунай: report_01_zagal.md
-      - Проведення лоцмана за місяць: report_02_pilot_one_month.md
+      - Index: reports/index.md
+      - Дунай: reports/report_01_zagal.md
+      - Проведення лоцмана за місяць: reports/report_02_pilot_one_month.md
   - Ошибки в СПР судов: instr_video_05_sprships_01.md
   - Парсинг регистров: instr_video_06_sprships_equasis_03.md
   - РІВНІ ДУНАЮ ► ЧАТ - БОТ: instr_video_07_bonilevels.md
