@@ -8,7 +8,7 @@ theme:
       primary: blue
       accent: indigo
   features:
-    - navigation.sections     # многоуровневое меню
+    #- navigation.sections     # многоуровневое меню
     - navigation.expand       # раскрывать подразделы
     - navigation.top          # кнопка "вверх"
     - header.autohide         # шапка прилипала
