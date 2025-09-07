@@ -16,6 +16,7 @@ theme:
     - content.code.copy       # копирование кода кнопкой
     - content.tabs.link       # вкладки
     - content.tooltips        # всплывающие подсказки    
+    - navigation.tabs         # вкладки в меню
 markdown_extensions:
   - toc
   - admonition
