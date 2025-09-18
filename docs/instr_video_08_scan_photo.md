@@ -1,4 +1,3 @@
-## 📸 Скан кв-ии
 ==**2025-09-18**== ◄ `дата публикации`
 <iframe width="500" height="515" src="https://www.youtube.com/embed/wnBVOTwFgDk" frameborder="0" allowfullscreen></iframe>
 
