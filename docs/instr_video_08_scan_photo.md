@@ -1,6 +1,6 @@
 ## 📸 Скан кв-ии
 ==**2025-09-18**== ◄ `дата публикации`
-<iframe width="560" height="315" src="https://youtube.com/shorts/wnBVOTwFgDk" frameborder="0" allowfullscreen></iframe>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/wnBVOTwFgDk" frameborder="0" allowfullscreen></iframe>
 
 Кликните **на эпизод** и сразу откроется нужный момент видео.
 
