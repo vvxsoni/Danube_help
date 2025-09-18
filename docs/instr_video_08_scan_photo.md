@@ -1,19 +1,19 @@
 ## 📸 Скан кв-ии
 ==**2025-09-18**== ◄ `дата публикации`
-<iframe width="560" height="315" src="https://youtube.com/shorts/wnBVOTwFgDk?si=_yFj1DOtpCMKdEnB" frameborder="0" allowfullscreen></iframe>
+<iframe width="560" height="315" src="https://youtube.com/shorts/wnBVOTwFgDk" frameborder="0" allowfullscreen></iframe>
 
 Кликните **на эпизод** и сразу откроется нужный момент видео.
 
 ### Эпизоды
 
 - 🎬 **00:00** — [Обрезка фото по границам квитанции ПЛС](https://www.youtube.com/shorts/wnBVOTwFgDk?t=0){ target="_blank" }
-- 🎬 **00:03** — [Кнопка СКАН](https://www.youtube.com/shorts/wnBVOTwFgDk4?start=3){ target="_blank" }
-- 🎬 **00:28** — [Разрешить, когда я на сайте](https://www.youtube.com/shorts/wnBVOTwFgDk4?start=28){ target="_blank" }
-- 🎬 **00:40** — [Скан документа](https://www.youtube.com/shorts/wnBVOTwFgDk4?start=40){ target="_blank" }
-- 🎬 **00:55** — [Кнопка Обрезать](https://www.youtube.com/shorts/wnBVOTwFgDk4?start=55){ target="_blank" }
-- 🎬 **00:59** — [Нет фокуса](https://www.youtube.com/shorts/wnBVOTwFgDk4?start=59){ target="_blank" }
-- 🎬 **01:22** — [Скан в фокусе](https://www.youtube.com/shorts/wnBVOTwFgDk4?start=82){ target="_blank" }
-- 🎬 **01:44** — [Разрешения браузера](https://www.youtube.com/shorts/wnBVOTwFgDk4?start=104){ target="_blank" }
+- 🎬 **00:03** — [Кнопка СКАН](https://www.youtube.com/shorts/wnBVOTwFgDk4?t=3){ target="_blank" }
+- 🎬 **00:28** — [Разрешить, когда я на сайте](https://www.youtube.com/shorts/wnBVOTwFgDk4?t=28){ target="_blank" }
+- 🎬 **00:40** — [Скан документа](https://www.youtube.com/shorts/wnBVOTwFgDk4?t=40){ target="_blank" }
+- 🎬 **00:55** — [Кнопка Обрезать](https://www.youtube.com/shorts/wnBVOTwFgDk4?t=55){ target="_blank" }
+- 🎬 **00:59** — [Нет фокуса](https://www.youtube.com/shorts/wnBVOTwFgDk4?t=59){ target="_blank" }
+- 🎬 **01:22** — [Скан в фокусе](https://www.youtube.com/shorts/wnBVOTwFgDk4?t=82){ target="_blank" }
+- 🎬 **01:44** — [Разрешения браузера](https://www.youtube.com/shorts/wnBVOTwFgDk4?t=104){ target="_blank" }
 
 ---
 
