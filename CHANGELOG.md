@@ -3,7 +3,14 @@ MkDocs_Pagefind_GitHub_Pages
 # **Документация** - меняем технологию на **MkDocs_Pagefind_GitHub_Pages**
 
 ---------------------------------------------------------------
+## [v.1.0.0] - 2025-12-09 - andrey - ## [Инструкция на сайте danube.pp.ua]
+### Added
+1. [Инструкция на сайте danube.pp.ua](https://www.danube.pp.ua/instr_video_08_rozpodil)
+2. [Инструкция на сайте danube.pp.ua](https://www.danube.pp.ua/instr_video_11_packet_photo_crop)
+
+---------------------------------------------------------------
 ## [v.1.0.0] - 2025-12-09 - andrey - ## [Инструкция на сайте danube.pp.ua](https://www.danube.pp.ua/instr_video_09_pereglyad)
+
 ---------------------------------------------------------------
 ## [v.1.0.0] - 2025-12-02 - andrey - **ПЛС Черноморск / Дунай ► Пакетная обрезка фото квитанций перед формированием PDF для АМПУ**
 ### Added

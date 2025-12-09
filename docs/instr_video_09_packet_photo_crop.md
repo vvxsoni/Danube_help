@@ -1,4 +1,5 @@
 ==**2025-12-02**== ◄ `дата публикации`
+## [Инструкция на сайте danube.pp.ua](https://www.danube.pp.ua/instr_video_11_packet_photo_crop)
 <iframe width="500" height="515" src="https://www.youtube.com/embed/EUijyFh4ykI" frameborder="0" allowfullscreen></iframe>
 
 Кликните **на эпизод** и сразу откроется нужный момент видео.

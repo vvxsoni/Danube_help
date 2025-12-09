@@ -1,4 +1,5 @@
 ==**2025-07-10**== ◄ `дата публикации`
+## [Инструкция на сайте danube.pp.ua](https://www.danube.pp.ua/instr_video_08_rozpodil)
 <iframe width="500" height="515" src="https://www.youtube.com/embed/eJfPAnn8LZM" frameborder="0" allowfullscreen></iframe>
 
 ✅ **Инструкция : РОЗПОДІЛ ЛОЦМАНІВ • v.3.0**
