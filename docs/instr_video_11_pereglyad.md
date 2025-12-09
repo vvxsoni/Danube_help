@@ -1,4 +1,5 @@
 ==**2025-07-20**== ◄ `дата публикации`
+## [Инструкция на сайте danube.pp.ua](https://www.danube.pp.ua/instr_video_09_pereglyad)
 <iframe width="500" height="515" src="https://www.youtube.com/embed/vPTEtGBcCko" frameborder="0" allowfullscreen></iframe>
 
 ✅ **Инструкция : ПЕРЕГЛЯД ЗАЯВОК • v.2.0**
